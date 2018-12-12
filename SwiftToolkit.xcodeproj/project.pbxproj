@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
-		C66EE2C221C18052003B983F /* SwiftToolkitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66EE2C121C18052003B983F /* SwiftToolkitTests.swift */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
+		C6CB39CC21C182BC00816242 /* Sectionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39CB21C182BC00816242 /* Sectionable.swift */; };
+		C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */; };
+		C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */; };
+		C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +31,12 @@
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C66EE2BC21C18052003B983F /* SwiftToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C66EE2C121C18052003B983F /* SwiftToolkitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftToolkitTests.swift; sourceTree = "<group>"; };
 		C66EE2C321C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6CB39C921C182AE00816242 /* ItemSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSection.swift; sourceTree = "<group>"; };
+		C6CB39CB21C182BC00816242 /* Sectionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sectionable.swift; sourceTree = "<group>"; };
+		C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSectionTests.swift; sourceTree = "<group>"; };
+		C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSectionBuilder.swift; sourceTree = "<group>"; };
+		C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSectionBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,9 @@
 		C66EE2B521C18052003B983F /* SwiftToolkit */ = {
 			isa = PBXGroup;
 			children = (
+				C6CB39C921C182AE00816242 /* ItemSection.swift */,
+				C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */,
+				C6CB39CB21C182BC00816242 /* Sectionable.swift */,
 				C66EE2B621C18052003B983F /* SwiftToolkit.h */,
 				C66EE2B721C18052003B983F /* Info.plist */,
 			);
@@ -80,8 +91,9 @@
 		C66EE2C021C18052003B983F /* SwiftToolkitTests */ = {
 			isa = PBXGroup;
 			children = (
-				C66EE2C121C18052003B983F /* SwiftToolkitTests.swift */,
 				C66EE2C321C18052003B983F /* Info.plist */,
+				C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */,
+				C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */,
 			);
 			path = SwiftToolkitTests;
 			sourceTree = "<group>";
@@ -194,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */,
+				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
+				C6CB39CC21C182BC00816242 /* Sectionable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C66EE2C221C18052003B983F /* SwiftToolkitTests.swift in Sources */,
+				C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */,
+				C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +407,7 @@
 		C66EE2CB21C18052003B983F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M24E9L9K4U;
 				INFOPLIST_FILE = SwiftToolkitTests/Info.plist;
@@ -409,6 +426,7 @@
 		C66EE2CC21C18052003B983F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M24E9L9K4U;
 				INFOPLIST_FILE = SwiftToolkitTests/Info.plist;
