@@ -79,11 +79,10 @@
 		C66EE2B521C18052003B983F /* SwiftToolkit */ = {
 			isa = PBXGroup;
 			children = (
+				C6CB39D521C1A6D500816242 /* Meta */,
 				C6CB39C921C182AE00816242 /* ItemSection.swift */,
 				C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */,
 				C6CB39CB21C182BC00816242 /* Sectionable.swift */,
-				C66EE2B621C18052003B983F /* SwiftToolkit.h */,
-				C66EE2B721C18052003B983F /* Info.plist */,
 			);
 			path = SwiftToolkit;
 			sourceTree = "<group>";
@@ -96,6 +95,15 @@
 				C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */,
 			);
 			path = SwiftToolkitTests;
+			sourceTree = "<group>";
+		};
+		C6CB39D521C1A6D500816242 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				C66EE2B621C18052003B983F /* SwiftToolkit.h */,
+				C66EE2B721C18052003B983F /* Info.plist */,
+			);
+			path = Meta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +372,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftToolkit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftToolkit/Meta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,7 +397,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftToolkit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftToolkit/Meta/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
