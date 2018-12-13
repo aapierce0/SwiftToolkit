@@ -8,13 +8,13 @@
 
 import UIKit
 
-class StackViewController: UIViewController {
+public class StackViewController: UIViewController {
     
-    private(set) weak var stackView: UIStackView!
+    private(set) public weak var stackView: UIStackView!
     
-    private(set) var arrangedViewControllers: [UIViewController] = []
+    private(set) public var arrangedViewControllers: [UIViewController] = []
     
-    override func loadView() {
+    override public func loadView() {
         view = UIView()
         view.backgroundColor = .clear
         
@@ -34,7 +34,7 @@ class StackViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = true
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         addAllArrangedViewControllersToStackView()
     }
@@ -47,7 +47,7 @@ class StackViewController: UIViewController {
     
     
     
-    func append(_ viewController: UIViewController) {
+    public func append(_ viewController: UIViewController) {
         arrangedViewControllers.append(viewController)
         addViewControllerToStackViewIfLoaded(viewController)
     }
@@ -66,7 +66,7 @@ class StackViewController: UIViewController {
     
     
     
-    func insert(_ viewController: UIViewController, at index: Int) {
+    public func insert(_ viewController: UIViewController, at index: Int) {
         arrangedViewControllers.insert(viewController, at: index)
         insertViewControllerInStackViewIfLoaded(viewController, at: index)
     }
@@ -85,7 +85,7 @@ class StackViewController: UIViewController {
 
     
     
-    func removeViewController(at index: Int) {
+    public func removeViewController(at index: Int) {
         let viewController = arrangedViewControllers[index]
         arrangedViewControllers.remove(at: index)
         

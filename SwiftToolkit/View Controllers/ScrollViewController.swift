@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ScrollViewController: UIViewController {
+public class ScrollViewController: UIViewController {
     
-    weak var scrollView: UIScrollView!
+    public weak var scrollView: UIScrollView!
     
-    private(set) var contentViewController: UIViewController!
+    private(set) public var contentViewController: UIViewController!
     
-    convenience init(wrapping viewController: UIViewController) {
+    public convenience init(wrapping viewController: UIViewController) {
         self.init()
         setContent(viewController)
     }
     
-    override func loadView() {
+    override public func loadView() {
         view = UIView()
         view.backgroundColor = .clear
         
@@ -39,13 +39,13 @@ class ScrollViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = true
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         setContentViewControllerInScrollView()
     }
     
-    func setContent(_ viewController: UIViewController) {
+    public func setContent(_ viewController: UIViewController) {
         if isViewLoaded {
             fatalError("Attempted to set the content view controller after view was loaded")
         } else {

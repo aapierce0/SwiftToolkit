@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+public class ContainerViewController: UIViewController {
     
-    private(set) var contentViewController: UIViewController?
+    private(set) public var contentViewController: UIViewController?
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
     }
     
-    func setContent(_ viewController: UIViewController) {
+    public func setContent(_ viewController: UIViewController) {
         contentViewController?.viewIfLoaded?.removeFromSuperview()
         contentViewController?.removeFromParent()
         

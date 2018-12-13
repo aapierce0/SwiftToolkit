@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ActivityIndicatorViewController: UIViewController {
+public class ActivityIndicatorViewController: UIViewController {
     
-    private(set) weak var activityIndicatorView: UIActivityIndicatorView!
+    private(set) public weak var activityIndicatorView: UIActivityIndicatorView!
     
-    var isAnimating: Bool = true { didSet { configureIfLoaded() } }
+    public var isAnimating: Bool = true { didSet { configureIfLoaded() } }
     
-    override func loadView() {
+    override public func loadView() {
         view = UIView()
         view.backgroundColor = .white
         
@@ -35,7 +35,7 @@ class ActivityIndicatorViewController: UIViewController {
         activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
