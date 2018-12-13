@@ -18,6 +18,8 @@
 		C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043C821C2BFFC004EBD80 /* ContainerViewControllerTests.swift */; };
 		C6D043CB21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043CA21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift */; };
 		C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */; };
+		C6D043D021C2D185004EBD80 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043CF21C2D185004EBD80 /* StackViewController.swift */; };
+		C6D043D221C2D197004EBD80 /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		C6D043C821C2BFFC004EBD80 /* ContainerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerTests.swift; sourceTree = "<group>"; };
 		C6D043CA21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewControllerTests.swift; sourceTree = "<group>"; };
+		C6D043CF21C2D185004EBD80 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 			children = (
 				C6D043C521C2BA73004EBD80 /* ContainerViewController.swift */,
 				C6D043CA21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift */,
+				C6D043CF21C2D185004EBD80 /* StackViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			children = (
 				C6D043C821C2BFFC004EBD80 /* ContainerViewControllerTests.swift */,
 				C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */,
+				C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */,
 				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
+				C6D043D021C2D185004EBD80 /* StackViewController.swift in Sources */,
 				C6D043CB21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift in Sources */,
 				C6CB39CC21C182BC00816242 /* Sectionable.swift in Sources */,
 			);
@@ -266,6 +273,7 @@
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
 				C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */,
 				C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */,
+				C6D043D221C2D197004EBD80 /* StackViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
