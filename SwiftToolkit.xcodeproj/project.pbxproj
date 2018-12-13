@@ -87,8 +87,8 @@
 		C66EE2B521C18052003B983F /* SwiftToolkit */ = {
 			isa = PBXGroup;
 			children = (
-				C6D043C421C2BA4E004EBD80 /* View Controllers */,
 				C6CB39D521C1A6D500816242 /* Meta */,
+				C6D043C421C2BA4E004EBD80 /* View Controllers */,
 				C6CB39C921C182AE00816242 /* ItemSection.swift */,
 				C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */,
 				C6CB39CB21C182BC00816242 /* Sectionable.swift */,
@@ -99,10 +99,10 @@
 		C66EE2C021C18052003B983F /* SwiftToolkitTests */ = {
 			isa = PBXGroup;
 			children = (
-				C66EE2C321C18052003B983F /* Info.plist */,
+				C6D043CE21C2D0DC004EBD80 /* Meta */,
+				C6D043C721C2BFE4004EBD80 /* View Controllers */,
 				C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */,
 				C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */,
-				C6D043C721C2BFE4004EBD80 /* View Controllers */,
 			);
 			path = SwiftToolkitTests;
 			sourceTree = "<group>";
@@ -132,6 +132,14 @@
 				C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C6D043CE21C2D0DC004EBD80 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				C66EE2C321C18052003B983F /* Info.plist */,
+			);
+			path = Meta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,7 +460,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M24E9L9K4U;
-				INFOPLIST_FILE = SwiftToolkitTests/Info.plist;
+				INFOPLIST_FILE = SwiftToolkitTests/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +479,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M24E9L9K4U;
-				INFOPLIST_FILE = SwiftToolkitTests/Info.plist;
+				INFOPLIST_FILE = SwiftToolkitTests/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
