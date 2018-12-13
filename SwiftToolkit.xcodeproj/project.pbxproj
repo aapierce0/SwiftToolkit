@@ -20,6 +20,7 @@
 		C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */; };
 		C6D043D021C2D185004EBD80 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043CF21C2D185004EBD80 /* StackViewController.swift */; };
 		C6D043D221C2D197004EBD80 /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */; };
+		C6D043D521C2F041004EBD80 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D421C2F041004EBD80 /* MockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewControllerTests.swift; sourceTree = "<group>"; };
 		C6D043CF21C2D185004EBD80 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
+		C6D043D421C2F041004EBD80 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				C6D043CE21C2D0DC004EBD80 /* Meta */,
+				C6D043D321C2F025004EBD80 /* Mock */,
 				C6D043C721C2BFE4004EBD80 /* View Controllers */,
 				C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */,
 				C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */,
@@ -146,6 +149,14 @@
 				C66EE2C321C18052003B983F /* Info.plist */,
 			);
 			path = Meta;
+			sourceTree = "<group>";
+		};
+		C6D043D321C2F025004EBD80 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C6D043D421C2F041004EBD80 /* MockViewController.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6D043D521C2F041004EBD80 /* MockViewController.swift in Sources */,
 				C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */,
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
 				C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */,

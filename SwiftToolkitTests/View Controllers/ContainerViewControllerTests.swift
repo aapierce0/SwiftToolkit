@@ -54,8 +54,3 @@ class ContainerViewControllerTests: XCTestCase {
     }
 }
 
-fileprivate class MockViewController : UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .green
-    }
-}
