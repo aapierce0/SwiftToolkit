@@ -23,6 +23,7 @@
 		C6D043D521C2F041004EBD80 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D421C2F041004EBD80 /* MockViewController.swift */; };
 		C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */; };
 		C6D043D921C2FC74004EBD80 /* ScrollViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */; };
+		C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C6D043D421C2F041004EBD80 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewControllerTests.swift; sourceTree = "<group>"; };
+		C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBackedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				C6D043CA21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift */,
 				C6D043CF21C2D185004EBD80 /* StackViewController.swift */,
 				C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */,
+				C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */,
 				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
+				C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,
 				C6D043D021C2D185004EBD80 /* StackViewController.swift in Sources */,
