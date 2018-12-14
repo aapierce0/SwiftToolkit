@@ -60,6 +60,49 @@ class ScrollViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 100, height: 400))
     }
     
+    func testConstrainsContentToFitWidthBeforeLoad() {
+        viewController.constrainsContentToFitWidth = true
+        
+        let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
+        
+        viewController.setContent(mockViewController)
+        setViewSize(CGSize(width: 100, height: 100))
+        
+        XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 100, height: 400))
+    }
+    
+    func testConstrainsContentToFitWidth() {
+        
+        let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
+        
+        viewController.setContent(mockViewController)
+        setViewSize(CGSize(width: 100, height: 100))
+        
+        viewController.constrainsContentToFitWidth = true
+        viewController.view.layoutIfNeeded()
+        XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 100, height: 400))
+        
+        viewController.constrainsContentToFitWidth = false
+        viewController.view.layoutIfNeeded()
+        XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 400, height: 400))
+    }
+    
+    func testConstrainsContentToFitHeight() {
+        let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
+        
+        viewController.setContent(mockViewController)
+        setViewSize(CGSize(width: 100, height: 100))
+        
+        viewController.constrainsContentToFitHeight = true
+        viewController.view.layoutIfNeeded()
+        XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 400, height: 100))
+        
+        viewController.constrainsContentToFitHeight = false
+        viewController.view.layoutIfNeeded()
+        XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 400, height: 400))
+    }
+    
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }
@@ -70,12 +113,21 @@ class ScrollViewControllerTests: XCTestCase {
         viewController.view.layoutIfNeeded()
     }
     
-    func createMockViewController(constrainedTo size: CGSize) -> MockViewController {
+    func createMockViewController(constrainedTo size: CGSize, priority: UILayoutPriority = .required) -> MockViewController {
         let mockViewController = MockViewController()
         mockViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        mockViewController.view.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        mockViewController.view.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        
+        let mockViewWidthConstraint = mockViewController.view.widthAnchor.constraint(equalToConstant: size.width)
+        mockViewWidthConstraint.priority = priority
+        mockViewWidthConstraint.isActive = true
+        
+        let mockViewHeightConstraint = mockViewController.view.heightAnchor.constraint(equalToConstant: size.height)
+        mockViewHeightConstraint.priority = priority
+        mockViewHeightConstraint.isActive = true
+        
         mockViewController.view.setNeedsLayout()
+        mockViewController.view.layoutIfNeeded()
+        
         return mockViewController
     }
 

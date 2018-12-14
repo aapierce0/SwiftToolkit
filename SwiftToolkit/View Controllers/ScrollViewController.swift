@@ -14,6 +14,13 @@ public class ScrollViewController: UIViewController {
     
     private(set) public var contentViewController: UIViewController!
     
+    public var constrainsContentToFitWidth: Bool = false { didSet { activateLayoutConstraintsForContentViewIfLoaded() } }
+    private var contentFitsWidthConstraint: NSLayoutConstraint!
+    
+    public var constrainsContentToFitHeight: Bool = false { didSet {
+        activateLayoutConstraintsForContentViewIfLoaded() } }
+    private var contentFitsHeightConstraint: NSLayoutConstraint!
+    
     public convenience init(wrapping viewController: UIViewController) {
         self.init()
         setContent(viewController)
@@ -22,6 +29,7 @@ public class ScrollViewController: UIViewController {
     override public func loadView() {
         view = UIView()
         view.backgroundColor = .clear
+        view.accessibilityIdentifier = "Scroll View Controller Wrapper View"
         
         loadScrollView()
     }
@@ -62,14 +70,48 @@ public class ScrollViewController: UIViewController {
         viewController.didMove(toParent: self)
     }
     
-    private func activateLayoutConstraintsForContentView() {
-        guard let contentView = contentViewController?.viewIfLoaded else { return }
+    private func activateLayoutConstraintsForContentViewIfLoaded() {
+        if isContentViewLoaded {
+            activateLayoutConstraintsForContentView()
+        }
+    }
+    
+    private var isContentViewLoaded: Bool {
+        guard isViewLoaded else { return false }
+        guard let contentViewController = contentViewController else { return false }
+        return contentViewController.isViewLoaded
+    }
+    
+    internal func activateLayoutConstraintsForContentView() {
+        let contentView = contentViewController.view!
         
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        activateWidthConstraintForContentViewIfNeeded()
+        activateHeightConstraintForContentViewIfNeeded()
         contentView.setNeedsLayout()
+    }
+    
+    private func activateWidthConstraintForContentViewIfNeeded() {
+        let widthConstraintIsActive = constrainsContentToFitWidth
+        
+        if contentFitsWidthConstraint == nil {
+            contentFitsWidthConstraint = contentViewController.view.widthAnchor.constraint(equalTo: view.widthAnchor)
+        }
+        
+        contentFitsWidthConstraint.isActive = widthConstraintIsActive
+    }
+    
+    private func activateHeightConstraintForContentViewIfNeeded() {
+        let heightConstraintIsActive = constrainsContentToFitHeight
+        
+        if contentFitsHeightConstraint == nil {
+            contentFitsHeightConstraint = contentViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor)
+        }
+        
+        contentFitsHeightConstraint.isActive = heightConstraintIsActive
     }
 
 }
