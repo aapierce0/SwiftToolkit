@@ -64,8 +64,8 @@ public class PictureInPictureViewController: UIViewController {
         let pipView = pictureInPictureWrapperView!
         
         pipView.translatesAutoresizingMaskIntoConstraints = false
-        pipView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8.0).isActive = true
-        pipView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8.0).isActive = true
+        pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8.0).isActive = true
+        pipView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8.0).isActive = true
         pipView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         pipView.heightAnchor.constraint(equalToConstant: 120).isActive = true
     }
