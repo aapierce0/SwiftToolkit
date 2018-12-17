@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C608773721C7FEDE0061D51C /* PictureInPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608773621C7FEDE0061D51C /* PictureInPictureViewController.swift */; };
+		C608773921C801120061D51C /* PictureInPictureViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608773821C801120061D51C /* PictureInPictureViewControllerTests.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C608773621C7FEDE0061D51C /* PictureInPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewController.swift; sourceTree = "<group>"; };
+		C608773821C801120061D51C /* PictureInPictureViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewControllerTests.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				C6D043CF21C2D185004EBD80 /* StackViewController.swift */,
 				C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */,
 				C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */,
+				C608773621C7FEDE0061D51C /* PictureInPictureViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				C6D043CC21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift */,
 				C6D043D121C2D197004EBD80 /* StackViewControllerTests.swift */,
 				C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */,
+				C608773821C801120061D51C /* PictureInPictureViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			files = (
 				C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */,
 				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
+				C608773721C7FEDE0061D51C /* PictureInPictureViewController.swift in Sources */,
 				C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,
@@ -296,6 +303,7 @@
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
 				C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */,
 				C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */,
+				C608773921C801120061D51C /* PictureInPictureViewControllerTests.swift in Sources */,
 				C6D043D921C2FC74004EBD80 /* ScrollViewControllerTests.swift in Sources */,
 				C6D043D221C2D197004EBD80 /* StackViewControllerTests.swift in Sources */,
 			);
