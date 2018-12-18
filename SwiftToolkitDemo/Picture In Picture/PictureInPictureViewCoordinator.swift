@@ -32,6 +32,8 @@ class PictureInPictureViewCoordinator {
         let primary = createWrapperViewControllerContainingContent()
         pipViewController.setPrimary(primary)
         pipViewController.setPictureInPicture(accessoryViewController)
+        
+        setPIPOverlayShadowFromShadowEditor()
     }
     
     private func setupAccessoryViewController() {
@@ -41,6 +43,7 @@ class PictureInPictureViewCoordinator {
     
     private func setupShadowEditorViewController() {
         shadowEditorViewController = ShadowEditorViewController.instantiateFromDesignatedNib()
+        shadowEditorViewController.shadowDescriptor = .floatyDropShadow
         
         NotificationCenter.default.addObserver(self, selector: #selector(PictureInPictureViewCoordinator.shadowViewControllerDidChange(_:)), name: ShadowEditorViewController.Notification.valueDidChange, object: shadowEditorViewController)
     }
@@ -64,6 +67,10 @@ class PictureInPictureViewCoordinator {
     }
     
     @objc private func shadowViewControllerDidChange(_ notification: NSNotification) {
+        setPIPOverlayShadowFromShadowEditor()
+    }
+    
+    private func setPIPOverlayShadowFromShadowEditor() {
         let shadow = shadowEditorViewController.shadowDescriptor
         pipViewController.pictureOverlayShadow = shadow
     }

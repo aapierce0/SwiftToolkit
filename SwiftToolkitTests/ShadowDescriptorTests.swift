@@ -38,6 +38,15 @@ class ShadowDescriptorTests: XCTestCase {
         XCTAssertEqual(shadow.path, nil)
     }
     
+    func testFloatyDropShadow() {
+        let shadow = ShadowDescriptor.floatyDropShadow
+        XCTAssertEqual(shadow.offset, CGSize(width: 0.0, height: 2.0))
+        XCTAssertEqual(shadow.radius, 20.0)
+        XCTAssertEqual(shadow.opacity, 0.25)
+        XCTAssertEqual(shadow.color, UIColor.black.cgColor)
+        XCTAssertNil(shadow.path)
+    }
+    
     func testUIColorGetter() {
         var shadow = ShadowDescriptor()
         shadow.color = UIColor.black.cgColor

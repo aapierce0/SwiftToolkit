@@ -26,11 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZHn-uy-onY">
-                    <rect key="frame" x="15" y="0.0" width="345" height="355"/>
+                    <rect key="frame" x="15" y="20" width="345" height="632"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zni-zD-8Ch" userLabel="Horizontal Offset View">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="74.5"/>
@@ -55,7 +55,7 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="NT1-lr-Ogp">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-20" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="NT1-lr-Ogp">
                                             <rect key="frame" x="-2" y="28.5" width="333" height="31"/>
                                         </slider>
                                     </subviews>
@@ -92,7 +92,7 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-Yv-BXm">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-20" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-Yv-BXm">
                                             <rect key="frame" x="-2" y="28.5" width="333" height="31"/>
                                         </slider>
                                     </subviews>
@@ -144,10 +144,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-mP-uPi" userLabel="Opacity View">
-                            <rect key="frame" x="0.0" y="223.5" width="345" height="131.5"/>
+                            <rect key="frame" x="0.0" y="223.5" width="345" height="408.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-RC-ONm">
-                                    <rect key="frame" x="8" y="8" width="329" height="115.5"/>
+                                    <rect key="frame" x="8" y="8" width="329" height="392.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="HL0-xZ-Yu2">
                                             <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
@@ -167,7 +167,7 @@
                                             </subviews>
                                         </stackView>
                                         <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="201" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-Qb-Awo">
-                                            <rect key="frame" x="-2" y="28.5" width="333" height="88"/>
+                                            <rect key="frame" x="-2" y="28.5" width="333" height="365"/>
                                         </slider>
                                     </subviews>
                                 </stackView>

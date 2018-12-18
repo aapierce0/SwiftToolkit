@@ -32,15 +32,17 @@ class ShadowEditorViewController: UIViewController {
     @IBOutlet weak var opacitySlider: UISlider!
     @IBOutlet weak var opacityLabel: UILabel!
     
-    
+    private var _shadowDescriptor : ShadowDescriptor = .none
     var shadowDescriptor : ShadowDescriptor {
-        get { return currentShadowDescriptor() }
+        get { return _shadowDescriptor }
+        set { setNewShadowDescriptorAndConfigureIfLoaded(newValue) }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addTargetActionBindings()
+        configure(with: _shadowDescriptor)
     }
     
     private func addTargetActionBindings() {
@@ -58,6 +60,22 @@ class ShadowEditorViewController: UIViewController {
     
     private func addTargetActionBinding(for slider: UISlider) {
         slider.addTarget(self, action: #selector(ShadowEditorViewController.sliderDidUpdate(_:)), for: .valueChanged)
+    }
+    
+    private func setNewShadowDescriptorAndConfigureIfLoaded(_ shadowDescriptor: ShadowDescriptor) {
+        _shadowDescriptor = shadowDescriptor
+        configureIfLoaded(with: shadowDescriptor)
+    }
+    
+    private func configureIfLoaded(with shadowDescriptor: ShadowDescriptor) {
+        if isViewLoaded {
+            configure(with: shadowDescriptor)
+        }
+    }
+    
+    private func configure(with shadowDescriptor: ShadowDescriptor) {
+        configureSliders(with: shadowDescriptor)
+        configureLabels(with: shadowDescriptor)
     }
     
     private func currentShadowDescriptor() -> ShadowDescriptor {
@@ -84,6 +102,7 @@ class ShadowEditorViewController: UIViewController {
     }
     
     @objc private func sliderDidUpdate(_ sender: UISlider) {
+        _shadowDescriptor = currentShadowDescriptor()
         configureLabels(with: currentShadowDescriptor())
         postValueDidChangeNotification()
     }

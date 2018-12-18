@@ -40,4 +40,13 @@ public extension ShadowDescriptor {
         return shadow
     }()
     
+    static let floatyDropShadow: ShadowDescriptor = {
+        var shadow = ShadowDescriptor.none
+        shadow.uiColor = .black
+        shadow.offset.height = 2.0
+        shadow.radius = 20.0
+        shadow.opacity = 0.25
+        return shadow
+    }()
+    
 }
