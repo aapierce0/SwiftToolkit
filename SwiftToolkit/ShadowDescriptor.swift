@@ -11,7 +11,7 @@ import Foundation
 public struct ShadowDescriptor {
     public var radius: CGFloat = 0.0
     public var offset: CGSize = .zero
-    public var opactiy: Float = 0.0
+    public var opacity: Float = 0.0
     public var color: CGColor? = nil
     public var path: CGPath? = nil
     
@@ -30,13 +30,13 @@ public extension ShadowDescriptor {
         shadow.radius = 1.0
         shadow.offset = CGSize(width: 0.0, height: .hairline)
         shadow.uiColor = .black
-        shadow.opactiy = 0.2
+        shadow.opacity = 0.2
         return shadow
     }()
     
     static let documentDropShadow: ShadowDescriptor = {
         var shadow = ShadowDescriptor.dropSubtle
-        shadow.opactiy = 0.4
+        shadow.opacity = 0.4
         return shadow
     }()
     

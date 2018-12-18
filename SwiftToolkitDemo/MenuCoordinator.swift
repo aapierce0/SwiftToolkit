@@ -18,18 +18,10 @@ class ViewControllerMenuItem : MenuItem {
         let menuItem = ViewControllerMenuItem()
         menuItem.title = "Picture in Picture"
         menuItem.accessoryType = .disclosureIndicator
+        
+        let coordinator = PictureInPictureViewCoordinator()
         menuItem.createViewController = {
-            
-            let viewController = PictureInPictureViewController()
-            let primaryViewController = UIViewController()
-            primaryViewController.view.backgroundColor = UIColor(hue: 0.2, saturation: 0.4, brightness: 1.0, alpha: 1.0)
-            viewController.setPrimary(primaryViewController)
-            
-            let pipViewController = UIViewController()
-            pipViewController.view.backgroundColor = UIColor(hue: 0.8, saturation: 0.4, brightness: 1.0, alpha: 1.0)
-            viewController.setPictureInPicture(pipViewController)
-            
-            return viewController
+            return coordinator.viewController()
         }
         return menuItem
     }

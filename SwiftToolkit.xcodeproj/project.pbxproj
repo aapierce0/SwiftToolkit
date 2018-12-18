@@ -25,6 +25,9 @@
 		C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776321C95C880061D51C /* ShadowDescriptorTests.swift */; };
 		C608776621C95F8C0061D51C /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776521C95F8C0061D51C /* CALayer.swift */; };
 		C608776821C960600061D51C /* CALayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776721C960600061D51C /* CALayerTests.swift */; };
+		C608776D21C96CF20061D51C /* PictureInPictureViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776C21C96CF20061D51C /* PictureInPictureViewCoordinator.swift */; };
+		C608777021C96D580061D51C /* ShadowEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776E21C96D580061D51C /* ShadowEditorViewController.swift */; };
+		C608777121C96D580061D51C /* ShadowEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C608776F21C96D580061D51C /* ShadowEditorViewController.xib */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
@@ -94,6 +97,9 @@
 		C608776321C95C880061D51C /* ShadowDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDescriptorTests.swift; sourceTree = "<group>"; };
 		C608776521C95F8C0061D51C /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		C608776721C960600061D51C /* CALayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerTests.swift; sourceTree = "<group>"; };
+		C608776C21C96CF20061D51C /* PictureInPictureViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewCoordinator.swift; sourceTree = "<group>"; };
+		C608776E21C96D580061D51C /* ShadowEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEditorViewController.swift; sourceTree = "<group>"; };
+		C608776F21C96D580061D51C /* ShadowEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShadowEditorViewController.xib; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 				C608775021C859470061D51C /* MenuCoordinator.swift */,
 				C608775221C8596F0061D51C /* MenuTableViewController.swift */,
 				C608775421C859A90061D51C /* MenuItem.swift */,
+				C608776B21C96CBC0061D51C /* Picture In Picture */,
 			);
 			path = SwiftToolkitDemo;
 			sourceTree = "<group>";
@@ -175,6 +182,16 @@
 				C608776721C960600061D51C /* CALayerTests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C608776B21C96CBC0061D51C /* Picture In Picture */ = {
+			isa = PBXGroup;
+			children = (
+				C608776C21C96CF20061D51C /* PictureInPictureViewCoordinator.swift */,
+				C608776E21C96D580061D51C /* ShadowEditorViewController.swift */,
+				C608776F21C96D580061D51C /* ShadowEditorViewController.xib */,
+			);
+			path = "Picture In Picture";
 			sourceTree = "<group>";
 		};
 		C66EE2A921C18052003B983F = {
@@ -393,6 +410,7 @@
 				C608774B21C858830061D51C /* LaunchScreen.storyboard in Resources */,
 				C608774821C858830061D51C /* Assets.xcassets in Resources */,
 				C608774621C858810061D51C /* Main.storyboard in Resources */,
+				C608777121C96D580061D51C /* ShadowEditorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +435,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C608776D21C96CF20061D51C /* PictureInPictureViewCoordinator.swift in Sources */,
+				C608777021C96D580061D51C /* ShadowEditorViewController.swift in Sources */,
 				C608775321C8596F0061D51C /* MenuTableViewController.swift in Sources */,
 				C608774321C858810061D51C /* ViewController.swift in Sources */,
 				C608775121C859470061D51C /* MenuCoordinator.swift in Sources */,

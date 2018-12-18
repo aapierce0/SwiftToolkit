@@ -22,7 +22,7 @@ class CALayerTests: XCTestCase {
         layer.shadowPath = nil
         
         let shadow = layer.shadow
-        XCTAssertEqual(shadow.opactiy, 0.5)
+        XCTAssertEqual(shadow.opacity, 0.5)
         XCTAssertEqual(shadow.color, UIColor.blue.cgColor)
         XCTAssertEqual(shadow.uiColor, UIColor.blue)
         XCTAssertEqual(shadow.offset, CGSize(width: 5.0, height: 2.0))
@@ -32,7 +32,7 @@ class CALayerTests: XCTestCase {
 
     func testSetter() {
         var shadow = ShadowDescriptor.none
-        shadow.opactiy = 0.5
+        shadow.opacity = 0.5
         shadow.uiColor = .blue
         shadow.offset = CGSize(width: 5.0, height: 2.0)
         shadow.radius = 10.0

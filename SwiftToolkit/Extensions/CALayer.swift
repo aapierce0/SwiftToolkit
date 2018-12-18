@@ -14,7 +14,7 @@ public extension CALayer {
             var shadow = ShadowDescriptor()
             shadow.offset = shadowOffset
             shadow.radius = shadowRadius
-            shadow.opactiy = shadowOpacity
+            shadow.opacity = shadowOpacity
             shadow.color = shadowColor
             shadow.path = shadowPath
             return shadow
@@ -23,7 +23,7 @@ public extension CALayer {
         set {
             shadowOffset = newValue.offset
             shadowRadius = newValue.radius
-            shadowOpacity = newValue.opactiy
+            shadowOpacity = newValue.opacity
             shadowColor = newValue.color
             shadowPath = newValue.path
         }

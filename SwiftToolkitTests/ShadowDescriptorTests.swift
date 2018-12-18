@@ -16,7 +16,7 @@ class ShadowDescriptorTests: XCTestCase {
         XCTAssertEqual(shadow.offset, CGSize.zero)
         XCTAssertEqual(shadow.radius, 0.0)
         XCTAssertEqual(shadow.color, nil)
-        XCTAssertEqual(shadow.opactiy, 0.0)
+        XCTAssertEqual(shadow.opacity, 0.0)
         XCTAssertEqual(shadow.path, nil)
     }
 
@@ -25,7 +25,7 @@ class ShadowDescriptorTests: XCTestCase {
         XCTAssertEqual(shadow.offset, CGSize(width: 0.0, height: .hairline))
         XCTAssertEqual(shadow.radius, 1.0)
         XCTAssertEqual(shadow.color, UIColor.black.cgColor)
-        XCTAssertEqual(shadow.opactiy, 0.2)
+        XCTAssertEqual(shadow.opacity, 0.2)
         XCTAssertEqual(shadow.path, nil)
     }
     
@@ -34,7 +34,7 @@ class ShadowDescriptorTests: XCTestCase {
         XCTAssertEqual(shadow.offset, CGSize(width: 0.0, height: .hairline))
         XCTAssertEqual(shadow.radius, 1.0)
         XCTAssertEqual(shadow.color, UIColor.black.cgColor)
-        XCTAssertEqual(shadow.opactiy, 0.4)
+        XCTAssertEqual(shadow.opacity, 0.4)
         XCTAssertEqual(shadow.path, nil)
     }
     
