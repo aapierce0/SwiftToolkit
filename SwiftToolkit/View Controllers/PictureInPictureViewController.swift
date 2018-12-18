@@ -28,6 +28,8 @@ public class PictureInPictureViewController: UIViewController {
     
     private weak var pictureInPictureWrapperView: UIView!
     
+    public var pictureOverlayShadow: ShadowDescriptor = .documentDropShadow { didSet { configureWrapperShadowIfLoaded() } }
+    
     convenience init(primaryViewController: UIViewController) {
         self.init()
         setPrimary(primaryViewController)
@@ -66,14 +68,17 @@ public class PictureInPictureViewController: UIViewController {
         let wrapperView = UIView()
         wrapperView.backgroundColor = .white
         wrapperView.layer.cornerRadius = PIP_CORNER_RADIUS
-        wrapperView.layer.shadowColor = UIColor.black.cgColor
-        wrapperView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        wrapperView.layer.shadowRadius = 12.0
-        wrapperView.layer.shadowOpacity = 0.3
         
         view.addSubview(wrapperView)
         pictureInPictureWrapperView = wrapperView
+        configureWrapperShadowIfLoaded()
         activateLayoutConstraintsForPictureInPictureWrapperView()
+    }
+    
+    private func configureWrapperShadowIfLoaded() {
+        if let wrapperView = pictureInPictureWrapperView {
+            wrapperView.layer.shadow = pictureOverlayShadow
+        }
     }
     
     private func activateLayoutConstraintsForPictureInPictureWrapperView() {
@@ -106,6 +111,8 @@ public class PictureInPictureViewController: UIViewController {
         containerView.setNeedsLayout()
     }
 
+    
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
 
