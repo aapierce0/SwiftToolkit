@@ -21,6 +21,8 @@
 		C608775721C9565C0061D51C /* SwiftToolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C608775D21C958060061D51C /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608775C21C958060061D51C /* CGFloat.swift */; };
 		C608776021C958A50061D51C /* CGFloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608775F21C958A50061D51C /* CGFloatTests.swift */; };
+		C608776221C95C3D0061D51C /* ShadowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776121C95C3D0061D51C /* ShadowDescriptor.swift */; };
+		C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776321C95C880061D51C /* ShadowDescriptorTests.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
@@ -86,6 +88,8 @@
 		C608775421C859A90061D51C /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		C608775C21C958060061D51C /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		C608775F21C958A50061D51C /* CGFloatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatTests.swift; sourceTree = "<group>"; };
+		C608776121C95C3D0061D51C /* ShadowDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDescriptor.swift; sourceTree = "<group>"; };
+		C608776321C95C880061D51C /* ShadowDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDescriptorTests.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				C6CB39C921C182AE00816242 /* ItemSection.swift */,
 				C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */,
 				C6CB39CB21C182BC00816242 /* Sectionable.swift */,
+				C608776121C95C3D0061D51C /* ShadowDescriptor.swift */,
 			);
 			path = SwiftToolkit;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				C608775E21C958900061D51C /* Extensions */,
 				C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */,
 				C6CB39D321C190C800816242 /* ItemSectionBuilderTests.swift */,
+				C608776321C95C880061D51C /* ShadowDescriptorTests.swift */,
 			);
 			path = SwiftToolkitTests;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				C6CB39D021C187D400816242 /* ItemSectionBuilder.swift in Sources */,
 				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
 				C608773721C7FEDE0061D51C /* PictureInPictureViewController.swift in Sources */,
+				C608776221C95C3D0061D51C /* ShadowDescriptor.swift in Sources */,
 				C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,
@@ -436,6 +443,7 @@
 			files = (
 				C6D043D521C2F041004EBD80 /* MockViewController.swift in Sources */,
 				C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */,
+				C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */,
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
 				C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */,
 				C608776021C958A50061D51C /* CGFloatTests.swift in Sources */,
