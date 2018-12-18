@@ -23,6 +23,8 @@
 		C608776021C958A50061D51C /* CGFloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608775F21C958A50061D51C /* CGFloatTests.swift */; };
 		C608776221C95C3D0061D51C /* ShadowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776121C95C3D0061D51C /* ShadowDescriptor.swift */; };
 		C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776321C95C880061D51C /* ShadowDescriptorTests.swift */; };
+		C608776621C95F8C0061D51C /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776521C95F8C0061D51C /* CALayer.swift */; };
+		C608776821C960600061D51C /* CALayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776721C960600061D51C /* CALayerTests.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
@@ -90,6 +92,8 @@
 		C608775F21C958A50061D51C /* CGFloatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatTests.swift; sourceTree = "<group>"; };
 		C608776121C95C3D0061D51C /* ShadowDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDescriptor.swift; sourceTree = "<group>"; };
 		C608776321C95C880061D51C /* ShadowDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDescriptorTests.swift; sourceTree = "<group>"; };
+		C608776521C95F8C0061D51C /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		C608776721C960600061D51C /* CALayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerTests.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C608775C21C958060061D51C /* CGFloat.swift */,
+				C608776521C95F8C0061D51C /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C608775F21C958A50061D51C /* CGFloatTests.swift */,
+				C608776721C960600061D51C /* CALayerTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,
 				C6D043D021C2D185004EBD80 /* StackViewController.swift in Sources */,
+				C608776621C95F8C0061D51C /* CALayer.swift in Sources */,
 				C6D043CB21C2C6C6004EBD80 /* ActivityIndicatorViewController.swift in Sources */,
 				C6CB39CC21C182BC00816242 /* Sectionable.swift in Sources */,
 			);
@@ -451,6 +458,7 @@
 				C608773921C801120061D51C /* PictureInPictureViewControllerTests.swift in Sources */,
 				C6D043D921C2FC74004EBD80 /* ScrollViewControllerTests.swift in Sources */,
 				C6D043D221C2D197004EBD80 /* StackViewControllerTests.swift in Sources */,
+				C608776821C960600061D51C /* CALayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
