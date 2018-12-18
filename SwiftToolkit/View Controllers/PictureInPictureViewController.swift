@@ -92,6 +92,7 @@ public class PictureInPictureViewController: UIViewController {
     }
     
     private func loadPictureInPictureContainerViewController() {
+        pictureInPictureContainerViewController.contentInset = .uniform(PIP_CONTENT_INSET)
         pictureInPictureWrapperView.addSubview(pictureInPictureContainerViewController.view)
         activateLayoutConstraintsForPictureInPictureView()
         
@@ -104,10 +105,10 @@ public class PictureInPictureViewController: UIViewController {
         let containerView = pictureInPictureContainerViewController.view!
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: PIP_CONTENT_INSET).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: PIP_CONTENT_INSET).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: 0 - PIP_CONTENT_INSET).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: 0 - PIP_CONTENT_INSET).isActive = true
+        containerView.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
         containerView.setNeedsLayout()
     }
 
