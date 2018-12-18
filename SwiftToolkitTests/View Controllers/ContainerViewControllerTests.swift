@@ -149,6 +149,18 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertEqual(mockViewController.view.frame, CGRect(x: 8.0, y: 8.0, width: 84, height: 84))
     }
     
+    func testCornerRadiusBeforeLoad() {
+        viewController.cornerRadius = 10.0
+        loadView()
+        XCTAssertEqual(viewController.view.layer.cornerRadius, 10.0)
+    }
+    
+    func testCornerRadiusAfterLoad() {
+        loadView()
+        viewController.cornerRadius = 10.0
+        XCTAssertEqual(viewController.view.layer.cornerRadius, 10.0)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }

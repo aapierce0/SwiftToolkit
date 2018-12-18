@@ -33,10 +33,13 @@ public class ContainerViewController: UIViewController {
     var contentInset: ContentInset = .zero { didSet { configureLayoutConstraints() } }
     private var activeLayoutConstraints: [NSLayoutConstraint] = []
     
+    var cornerRadius: CGFloat = 0 { didSet { configureCornerRadiusIfLoaded() } }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
+        configureCornerRadiusIfLoaded()
     }
     
     public func setContent(_ viewController: UIViewController) {
@@ -91,6 +94,10 @@ public class ContainerViewController: UIViewController {
         while let constraint = activeLayoutConstraints.popLast() {
             constraint.isActive = false
         }
+    }
+    
+    private func configureCornerRadiusIfLoaded() {
+        viewIfLoaded?.layer.cornerRadius = cornerRadius
     }
     
 }
