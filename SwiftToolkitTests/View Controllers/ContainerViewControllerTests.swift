@@ -10,6 +10,17 @@ import XCTest
 @testable import SwiftToolkit
 
 class ContainerViewControllerTests: XCTestCase {
+    
+    var viewController: ContainerViewController!
+    
+    override func setUp() {
+        viewController = ContainerViewController()
+    }
+    
+    override func tearDown() {
+        viewController = nil
+    }
+    
     func testEmptyContainerViewController() {
         let containerViewController = ContainerViewController()
         let view = containerViewController.view
@@ -100,6 +111,52 @@ class ContainerViewControllerTests: XCTestCase {
         navController.view.setNeedsLayout()
         navController.view.layoutIfNeeded()
         XCTAssertEqual(scrollViewController.view.frame, CGRect(x: 0, y: 0, width: 200, height: 200))
+    }
+    
+    func testContentInsetDefaultsToZero() {
+        XCTAssertEqual(viewController.contentInset, .zero)
+    }
+    
+    func testContentInsetUniform() {
+        let uniform = ContainerViewController.ContentInset.uniform(10.0)
+        
+        var expected = ContainerViewController.ContentInset()
+        expected.top = 10.0
+        expected.bottom = 10.0
+        expected.left = 10.0
+        expected.right = 10.0
+        
+        XCTAssertEqual(uniform, expected)
+    }
+    
+    func testInsetsContentBeforeLoad() {
+        viewController.contentInset = .uniform(8.0)
+        
+        let mockViewController = MockViewController()
+        viewController.setContent(mockViewController)
+        resizeView(CGSize(width: 100, height: 100))
+        
+        XCTAssertEqual(mockViewController.view.frame, CGRect(x: 8.0, y: 8.0, width: 84, height: 84))
+    }
+    
+    func testInsetsContentAfterLoad() {
+        let mockViewController = MockViewController()
+        viewController.setContent(mockViewController)
+        resizeView(CGSize(width: 100, height: 100))
+        
+        viewController.contentInset = .uniform(8.0)
+        viewController.view.layoutIfNeeded()
+        XCTAssertEqual(mockViewController.view.frame, CGRect(x: 8.0, y: 8.0, width: 84, height: 84))
+    }
+    
+    @discardableResult func loadView() -> UIView {
+        return viewController.view
+    }
+    
+    func resizeView(_ size: CGSize) {
+        viewController.view.frame.size = size
+        viewController.view.setNeedsLayout()
+        viewController.view.layoutIfNeeded()
     }
 }
 
