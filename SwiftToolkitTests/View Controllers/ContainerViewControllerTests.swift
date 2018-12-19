@@ -179,6 +179,28 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.view.layer.masksToBounds)
     }
     
+    func testSetShadowBeforeLoad() {
+        viewController.layerDescriptor.shadow = .floatyDropShadow
+        loadView()
+        
+        XCTAssertEqual(viewController.view.layer.shadowRadius, 20.0)
+        XCTAssertEqual(viewController.view.layer.shadowOffset, CGSize(width: 0.0, height: 2.0))
+        XCTAssertEqual(viewController.view.layer.shadowOpacity, 0.25)
+        XCTAssertEqual(viewController.view.layer.shadowColor, UIColor.black.cgColor)
+        XCTAssertNil(viewController.view.layer.shadowPath)
+    }
+    
+    func testSetShadowAfterLoad() {
+        loadView()
+        viewController.layerDescriptor.shadow = .floatyDropShadow
+        
+        XCTAssertEqual(viewController.view.layer.shadowRadius, 20.0)
+        XCTAssertEqual(viewController.view.layer.shadowOffset, CGSize(width: 0.0, height: 2.0))
+        XCTAssertEqual(viewController.view.layer.shadowOpacity, 0.25)
+        XCTAssertEqual(viewController.view.layer.shadowColor, UIColor.black.cgColor)
+        XCTAssertNil(viewController.view.layer.shadowPath)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }
