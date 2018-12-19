@@ -30,8 +30,20 @@ class PictureInPictureViewCoordinator {
         
         pipViewController = PictureInPictureViewController()
         let primary = createWrapperViewControllerContainingContent()
-        pipViewController.setPrimary(primary)
-        pipViewController.setPictureInPicture(accessoryViewController)
+        pipViewController.backgroundContainerViewController.setContent(primary)
+        
+        pipViewController.pictureInPictureContainerViewController.view.backgroundColor = .white
+        pipViewController.pictureInPictureContainerViewController.contentInset = .uniform(4.0)
+        pipViewController.pictureInPictureContainerViewController.cornerRadius = 12.0
+        let layer: CALayer = pipViewController.pictureInPictureContainerViewController.view.layer
+        layer.borderColor = UIColor(white: 0.7, alpha: 1.0).cgColor
+        layer.borderWidth = .hairline
+        
+        let accessoryWrapper = ContainerViewController()
+        accessoryWrapper.setContent(accessoryViewController)
+        accessoryWrapper.masksToBounds = true
+        accessoryWrapper.cornerRadius = 8.0
+        pipViewController.pictureInPictureContainerViewController.setContent(accessoryWrapper)
         
         setPIPOverlayShadowFromShadowEditor()
     }
@@ -72,6 +84,6 @@ class PictureInPictureViewCoordinator {
     
     private func setPIPOverlayShadowFromShadowEditor() {
         let shadow = shadowEditorViewController.shadowDescriptor
-        pipViewController.pictureOverlayShadow = shadow
+        pipViewController.pictureInPictureContainerViewController.layerDescriptor.shadow = shadow
     }
 }
