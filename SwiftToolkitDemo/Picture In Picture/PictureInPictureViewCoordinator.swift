@@ -35,9 +35,8 @@ class PictureInPictureViewCoordinator {
         pipViewController.pictureInPictureContainerViewController.view.backgroundColor = .white
         pipViewController.pictureInPictureContainerViewController.contentInset = .uniform(4.0)
         pipViewController.pictureInPictureContainerViewController.cornerRadius = 12.0
-        let layer: CALayer = pipViewController.pictureInPictureContainerViewController.view.layer
-        layer.borderColor = UIColor(white: 0.7, alpha: 1.0).cgColor
-        layer.borderWidth = .hairline
+        pipViewController.pictureInPictureContainerViewController.layerDescriptor.border.color = UIColor(white: 0.7, alpha: 1.0).cgColor
+        pipViewController.pictureInPictureContainerViewController.layerDescriptor.border.width = .hairline
         
         let accessoryWrapper = ContainerViewController()
         accessoryWrapper.setContent(accessoryViewController)

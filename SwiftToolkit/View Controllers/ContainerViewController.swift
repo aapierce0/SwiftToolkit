@@ -36,15 +36,7 @@ public class ContainerViewController: UIViewController {
     public var layerDescriptor : ViewLayerDescriptor = ViewLayerDescriptor() {
         didSet { configureViewLayerIfLoaded() }
     }
-    public var cornerRadius: CGFloat {
-        get { return layerDescriptor.cornerRadius }
-        set { layerDescriptor.cornerRadius = newValue }
-    }
-    public var masksToBounds: Bool {
-        get { return layerDescriptor.masksToBounds }
-        set { layerDescriptor.masksToBounds = newValue }
-    }
-    
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -108,5 +100,18 @@ public class ContainerViewController: UIViewController {
     
     private func configureViewLayerIfLoaded() {
         viewIfLoaded?.layer.configure(with: layerDescriptor)
+    }
+}
+
+// MARK: convenience properties
+
+public extension ContainerViewController {
+    public var cornerRadius: CGFloat {
+        get { return layerDescriptor.cornerRadius }
+        set { layerDescriptor.cornerRadius = newValue }
+    }
+    public var masksToBounds: Bool {
+        get { return layerDescriptor.masksToBounds }
+        set { layerDescriptor.masksToBounds = newValue }
     }
 }
