@@ -47,12 +47,16 @@ public class ContainerViewController: UIViewController {
         configureBackgroundColorIfLoaded()
     }
     
-    public func setContent(_ viewController: UIViewController) {
-        contentViewController?.viewIfLoaded?.removeFromSuperview()
-        contentViewController?.removeFromParent()
-        
+    public func setContent(_ viewController: UIViewController?) {
+        removeCurrentViewControllerIfNeeded()
         contentViewController = viewController
         addContentviewControllerToHierarchyIfLoaded()
+        view.layoutIfNeeded()
+    }
+    
+    private func removeCurrentViewControllerIfNeeded() {
+        contentViewController?.viewIfLoaded?.removeFromSuperview()
+        contentViewController?.removeFromParent()
     }
     
     private func addContentviewControllerToHierarchyIfLoaded() {
@@ -66,9 +70,7 @@ public class ContainerViewController: UIViewController {
         
         addChild(viewController)
         view.addSubview(viewController.view)
-        viewController.view.frame = view.bounds
         activateLayoutConstraintsForContentViewController()
-        viewController.view.setNeedsLayout()
         viewController.didMove(toParent: self)
     }
     

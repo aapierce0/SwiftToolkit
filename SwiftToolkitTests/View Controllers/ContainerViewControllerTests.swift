@@ -48,6 +48,17 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssert(mockViewController.parent === containerViewController)
     }
     
+    func testSetNilContentViewControllerAfterLoad() {
+        let mockViewController = MockViewController()
+        viewController.setContent(mockViewController)
+        loadView()
+        
+        viewController.setContent(nil)
+        
+        XCTAssertNil(mockViewController.parent)
+        XCTAssertNil(mockViewController.view.superview)
+    }
+    
     func testRemovesOldContentViewController() {
         let containerViewController = ContainerViewController()
         let view = containerViewController.view
