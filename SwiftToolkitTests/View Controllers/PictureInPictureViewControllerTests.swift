@@ -63,7 +63,7 @@ class PictureInPictureViewControllerTests: XCTestCase {
         XCTAssertEqual(wrapperView.frame, CGRect(x: 312, y: 8, width: 80, height: 120))
         
         let contentView = pipViewController.view!
-        XCTAssertEqual(contentView.frame, CGRect(x: 4.0, y: 4.0, width: 72, height: 112))
+        XCTAssertEqual(contentView.frame, CGRect(x: 0.0, y: 0.0, width: 72, height: 112))
     }
     
     func testPictureInPictureAfterLoad() {

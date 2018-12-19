@@ -21,12 +21,12 @@ public class PictureInPictureViewController: UIViewController {
     
     
     private(set) public var primaryViewController: UIViewController!
+    private let pictureInPictureWrapperContainerViewController = ContainerViewController()
     private let pictureInPictureContainerViewController = ContainerViewController()
     public var pictureInPictureViewController: UIViewController? {
         return pictureInPictureContainerViewController.contentViewController
     }
     
-    private weak var pictureInPictureWrapperView: UIView!
     
     public var pictureOverlayShadow: ShadowDescriptor = .documentDropShadow { didSet { configureWrapperShadowIfLoaded() } }
     
@@ -65,60 +65,44 @@ public class PictureInPictureViewController: UIViewController {
     }
     
     private func loadPictureInPictureWrapperView() {
-        let wrapperView = UIView()
-        wrapperView.backgroundColor = .white
-        wrapperView.layer.cornerRadius = PIP_CORNER_RADIUS
+        pictureInPictureWrapperContainerViewController.cornerRadius = PIP_CORNER_RADIUS
+        pictureInPictureWrapperContainerViewController.view.backgroundColor = .white
+        pictureInPictureWrapperContainerViewController.contentInset = .uniform(PIP_CONTENT_INSET)
+        pictureInPictureWrapperContainerViewController.setContent(pictureInPictureContainerViewController)
         
-        view.addSubview(wrapperView)
-        pictureInPictureWrapperView = wrapperView
+        addChild(pictureInPictureWrapperContainerViewController)
+        view.addSubview(pictureInPictureWrapperContainerViewController.view)
+        pictureInPictureWrapperContainerViewController.didMove(toParent: self)
+        
         configureWrapperShadowIfLoaded()
         activateLayoutConstraintsForPictureInPictureWrapperView()
     }
     
     private func configureWrapperShadowIfLoaded() {
-        if let wrapperView = pictureInPictureWrapperView {
+        if let wrapperView = pictureInPictureWrapperContainerViewController.viewIfLoaded {
             wrapperView.layer.shadow = pictureOverlayShadow
         }
     }
     
     private func activateLayoutConstraintsForPictureInPictureWrapperView() {
-        let pipView = pictureInPictureWrapperView!
+        let pipView = pictureInPictureWrapperContainerViewController.view!
         
         pipView.translatesAutoresizingMaskIntoConstraints = false
         pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET).isActive = true
         pipView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0 - PIP_INSET).isActive = true
         pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH).isActive = true
         pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT).isActive = true
+        pipView.setNeedsLayout()
     }
     
     private func loadPictureInPictureContainerViewController() {
-        pictureInPictureContainerViewController.contentInset = .uniform(PIP_CONTENT_INSET)
-        pictureInPictureWrapperView.addSubview(pictureInPictureContainerViewController.view)
-        activateLayoutConstraintsForPictureInPictureView()
+        pictureInPictureContainerViewController.contentInset = .zero
+        pictureInPictureContainerViewController.cornerRadius = PIP_CONTENT_CORNER_RADIUS
         
-        pictureInPictureContainerViewController.view.layer.cornerRadius = PIP_CONTENT_CORNER_RADIUS
         pictureInPictureContainerViewController.view.layer.masksToBounds = true
     }
-    
-    private func activateLayoutConstraintsForPictureInPictureView() {
-        let wrapperView = pictureInPictureWrapperView!
-        let containerView = pictureInPictureContainerViewController.view!
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
-        containerView.setNeedsLayout()
-    }
 
     
-    
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     public func setPrimary(_ viewController: UIViewController) {
         if isViewLoaded {
