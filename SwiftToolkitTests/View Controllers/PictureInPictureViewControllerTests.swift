@@ -20,24 +20,17 @@ class PictureInPictureViewControllerTests: XCTestCase {
     override func tearDown() {
         viewController = nil
     }
-
-    func testInitWithPrimaryViewController() {
-        let mockViewController = MockViewController()
-        viewController = PictureInPictureViewController(primaryViewController: mockViewController)
-        XCTAssert(viewController.backgroundContainerViewController.contentViewController === mockViewController)
-    }
     
     func testViewLoadsWithPrimaryContent() {
         let mockViewController = MockViewController()
-        viewController.setPrimary(mockViewController)
+        viewController.backgroundContainerViewController.setContent(mockViewController)
         loadView()
-        XCTAssert(viewController.backgroundContainerViewController.contentViewController === mockViewController)
         XCTAssertTrue(mockViewController.isViewLoaded)
     }
     
     func testPrimaryContentResizes() {
         let mockViewController = MockViewController()
-        viewController.setPrimary(mockViewController)
+        viewController.backgroundContainerViewController.setContent(mockViewController)
         loadView()
         
         resizeView(CGSize(width: 100, height: 100))
@@ -49,11 +42,21 @@ class PictureInPictureViewControllerTests: XCTestCase {
         XCTAssertEqual(mockViewController.view.frame, CGRect(x: 0, y: 0, width: 200, height: 200))
     }
     
+    func testPictureInPictureIsLoaded() {
+        let primaryViewController = MockViewController()
+        viewController.backgroundContainerViewController.setContent(primaryViewController)
+        let pipViewController = MockViewController()
+        viewController.pictureInPictureContainerViewController.setContent(pipViewController)
+        loadView()
+        
+        XCTAssertTrue(pipViewController.isViewLoaded)
+    }
+    
     func testPictureInPictureAppears() {
         let primaryViewController = MockViewController()
-        viewController.setPrimary(primaryViewController)
+        viewController.backgroundContainerViewController.setContent(primaryViewController)
         let pipViewController = MockViewController()
-        viewController.setPictureInPicture(pipViewController)
+        viewController.pictureInPictureContainerViewController.setContent(pipViewController)
         loadView()
         resizeView(CGSize(width: 400, height: 800))
         viewController.view.layoutIfNeeded()
@@ -68,12 +71,26 @@ class PictureInPictureViewControllerTests: XCTestCase {
     
     func testPictureInPictureAfterLoad() {
         let primaryViewController = MockViewController()
-        viewController.setPrimary(primaryViewController)
+        viewController.backgroundContainerViewController.setContent(primaryViewController)
         
         loadView()
         let mockViewController = MockViewController()
-        viewController.setPictureInPicture(mockViewController)
-        XCTAssert(viewController.pictureInPictureViewController === mockViewController)
+        viewController.pictureInPictureContainerViewController.setContent(mockViewController)
+        XCTAssert(viewController.pictureInPictureContainerViewController.contentViewController === mockViewController)
+    }
+    
+    func testConvenienceInitializerWithNilValues() {
+        let viewController = PictureInPictureViewController(background: nil, pictureInPicture: nil)
+        XCTAssertNil(viewController.backgroundContainerViewController.contentViewController)
+        XCTAssertNil(viewController.pictureInPictureContainerViewController.contentViewController)
+    }
+    
+    func testConvenienceInitializerWithMockValues() {
+        let mockBackground = MockViewController()
+        let mockPIP = MockViewController()
+        let viewController = PictureInPictureViewController(background: mockBackground, pictureInPicture: mockPIP)
+        XCTAssert(viewController.backgroundContainerViewController.contentViewController === mockBackground)
+        XCTAssert(viewController.pictureInPictureContainerViewController.contentViewController === mockPIP)
     }
 
 

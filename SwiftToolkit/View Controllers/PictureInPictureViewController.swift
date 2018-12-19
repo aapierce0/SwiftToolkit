@@ -8,38 +8,35 @@
 
 import UIKit
 
+fileprivate let PIP_INSET : CGFloat = 8.0
+fileprivate let PIP_HEIGHT : CGFloat = 120
+fileprivate let PIP_WIDTH : CGFloat = 80
+
 public class PictureInPictureViewController: UIViewController {
-    
-    private let PIP_INSET : CGFloat = 8.0
-    private let PIP_CORNER_RADIUS : CGFloat = 12.0
-    private let PIP_HEIGHT : CGFloat = 120
-    private let PIP_WIDTH : CGFloat = 80
-    private let PIP_CONTENT_INSET : CGFloat = 4.0
-    private var PIP_CONTENT_CORNER_RADIUS : CGFloat {
-        return max(PIP_CORNER_RADIUS - PIP_CONTENT_INSET, 0)
-    }
-    private let DEFAULT_PIP_SHADOW : ShadowDescriptor = .documentDropShadow
-    
     
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var pictureInPictureContainerViewController = ContainerViewController()
-    public var pictureInPictureViewController: UIViewController? {
-        return pictureInPictureContainerViewController.contentViewController
-    }
     
-    convenience init(primaryViewController: UIViewController) {
+    convenience init(background backgroundViewController: UIViewController? = nil, pictureInPicture pipViewController: UIViewController? = nil) {
         self.init()
-        setPrimary(primaryViewController)
+        
+        if let backgroundViewController = backgroundViewController {
+            backgroundContainerViewController.setContent(backgroundViewController)
+        }
+        
+        if let pipViewController = pipViewController {
+            pictureInPictureContainerViewController.setContent(pipViewController)
+        }
     }
     
     override public func loadView() {
         view = UIView()
         
-        loadPrimaryViewController()
-        loadPictureInPictureWrapperView()
+        loadBackgroundContainerViewController()
+        loadPictureInPictureContainerViewController()
     }
     
-    private func loadPrimaryViewController() {
+    private func loadBackgroundContainerViewController() {
         addChild(backgroundContainerViewController)
         view.addSubview(backgroundContainerViewController.view)
         activateLayoutConstraintsForPrimaryViewController()
@@ -57,7 +54,7 @@ public class PictureInPictureViewController: UIViewController {
         contentView.setNeedsLayout()
     }
     
-    private func loadPictureInPictureWrapperView() {
+    private func loadPictureInPictureContainerViewController() {
         addChild(pictureInPictureContainerViewController)
         view.addSubview(pictureInPictureContainerViewController.view)
         activateLayoutConstraintsForPictureInPictureWrapperView()
@@ -73,15 +70,5 @@ public class PictureInPictureViewController: UIViewController {
         pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH).isActive = true
         pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT).isActive = true
         pipView.setNeedsLayout()
-    }
-
-    
-    
-    public func setPrimary(_ viewController: UIViewController) {
-        backgroundContainerViewController.setContent(viewController)
-    }
-    
-    public func setPictureInPicture(_ viewController: UIViewController) {
-        pictureInPictureContainerViewController.setContent(viewController)
     }
 }
