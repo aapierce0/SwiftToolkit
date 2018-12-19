@@ -88,6 +88,22 @@ class PictureInPictureViewControllerTests: XCTestCase {
         XCTAssertEqual(pipParentViewController.view.layer.masksToBounds, true)
     }
     
+    func testPictureInPictureAddsDropShadow() {
+        let primaryViewController = MockViewController()
+        viewController.setPrimary(primaryViewController)
+        
+        let mockViewController = MockViewController()
+        viewController.setPictureInPicture(mockViewController)
+        loadView()
+        
+        let shadowWrapper = mockViewController.parent!.parent!
+        XCTAssertEqual(shadowWrapper.view.layer.shadowRadius, 1.0)
+        XCTAssertEqual(shadowWrapper.view.layer.shadowOffset, CGSize(width: 0.0, height: .hairline))
+        XCTAssertEqual(shadowWrapper.view.layer.shadowOpacity, 0.4)
+        XCTAssertEqual(shadowWrapper.view.layer.shadowColor, UIColor.black.cgColor)
+        XCTAssertEqual(shadowWrapper.view.layer.shadowPath, nil)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }
