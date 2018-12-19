@@ -32,7 +32,7 @@ class PictureInPictureViewCoordinator {
         let primary = createWrapperViewControllerContainingContent()
         pipViewController.backgroundContainerViewController.setContent(primary)
         
-        pipViewController.pictureInPictureContainerViewController.view.backgroundColor = .white
+        pipViewController.pictureInPictureContainerViewController.backgroundColor = .white
         pipViewController.pictureInPictureContainerViewController.contentInset = .uniform(4.0)
         pipViewController.pictureInPictureContainerViewController.cornerRadius = 12.0
         pipViewController.pictureInPictureContainerViewController.layerDescriptor.border.color = UIColor(white: 0.7, alpha: 1.0).cgColor
