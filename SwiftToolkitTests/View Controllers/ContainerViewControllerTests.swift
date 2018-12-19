@@ -201,6 +201,18 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertNil(viewController.view.layer.shadowPath)
     }
     
+    func testSetBackgroundColorBeforeLoad() {
+        viewController.backgroundColor = .blue
+        loadView()
+        XCTAssertEqual(viewController.view.backgroundColor, .blue)
+    }
+    
+    func testSetBackgroundColorAfterLoad() {
+        loadView()
+        viewController.backgroundColor = .red
+        XCTAssertEqual(viewController.view.backgroundColor, .red)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }

@@ -36,12 +36,15 @@ public class ContainerViewController: UIViewController {
     public var layerDescriptor : ViewLayerDescriptor = ViewLayerDescriptor() {
         didSet { configureViewLayerIfLoaded() }
     }
+    
+    public var backgroundColor : UIColor? = nil { didSet { configureBackgroundColorIfLoaded() } }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
         configureViewLayerIfLoaded()
+        configureBackgroundColorIfLoaded()
     }
     
     public func setContent(_ viewController: UIViewController) {
@@ -100,6 +103,10 @@ public class ContainerViewController: UIViewController {
     
     private func configureViewLayerIfLoaded() {
         viewIfLoaded?.layer.configure(with: layerDescriptor)
+    }
+    
+    private func configureBackgroundColorIfLoaded() {
+        viewIfLoaded?.backgroundColor = backgroundColor
     }
 }
 
