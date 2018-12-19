@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ShadowDescriptor {
+public struct ShadowDescriptor : Equatable {
     public var radius: CGFloat = 0.0
     public var offset: CGSize = .zero
     public var opacity: Float = 0.0

@@ -75,5 +75,20 @@ class CALayerTests: XCTestCase {
         XCTAssertEqual(layer.borderColor, UIColor.blue.cgColor)
         
     }
+    
+    func testConfigureWithLayerDescriptor() {
+        var layerDescriptor = ViewLayerDescriptor()
+        layerDescriptor.border = .hairline
+        layerDescriptor.shadow = .dropSubtle
+        layerDescriptor.cornerRadius = 10.0
+        layerDescriptor.masksToBounds = true
+        
+        layer.configure(with: layerDescriptor)
+        XCTAssertEqual(layer.border, .hairline)
+        XCTAssertEqual(layer.shadow, .dropSubtle)
+        XCTAssertEqual(layer.cornerRadius, 10.0)
+        XCTAssertEqual(layer.masksToBounds, true)
+        
+    }
 
 }

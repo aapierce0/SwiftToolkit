@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BorderDescriptor {
+public struct BorderDescriptor : Equatable {
     public var color: CGColor? = nil
     public var width: CGFloat = 0.0
     

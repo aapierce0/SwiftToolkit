@@ -8,10 +8,11 @@
 
 import Foundation
 
-public struct ViewLayerDescriptor {
+public struct ViewLayerDescriptor : Equatable {
     public var cornerRadius : CGFloat = 0
     public var masksToBounds : Bool = false
     public var shadow : ShadowDescriptor = .none
+    public var border : BorderDescriptor = .none
     
     init() {}
     
@@ -19,5 +20,6 @@ public struct ViewLayerDescriptor {
         cornerRadius = layer.cornerRadius
         masksToBounds = layer.masksToBounds
         shadow = layer.shadow
+        border = layer.border
     }
 }

@@ -14,6 +14,7 @@ public extension CALayer {
         masksToBounds = layerDescriptor.masksToBounds
         cornerRadius = layerDescriptor.cornerRadius
         shadow = layerDescriptor.shadow
+        border = layerDescriptor.border
     }
     
     var shadow: ShadowDescriptor {
