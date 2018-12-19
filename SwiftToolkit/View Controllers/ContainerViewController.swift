@@ -10,11 +10,11 @@ import UIKit
 
 public class ContainerViewController: UIViewController {
     
-    struct ContentInset : Equatable {
-        var top: CGFloat = 0
-        var bottom: CGFloat = 0
-        var left: CGFloat = 0
-        var right: CGFloat = 0
+    public struct ContentInset : Equatable {
+        public var top: CGFloat = 0
+        public var bottom: CGFloat = 0
+        public var left: CGFloat = 0
+        public var right: CGFloat = 0
         
         static let zero : ContentInset = ContentInset()
         
@@ -30,16 +30,18 @@ public class ContainerViewController: UIViewController {
     
     private(set) public var contentViewController: UIViewController?
 
-    var contentInset: ContentInset = .zero { didSet { configureLayoutConstraints() } }
+    public var contentInset: ContentInset = .zero { didSet { configureLayoutConstraints() } }
     private var activeLayoutConstraints: [NSLayoutConstraint] = []
     
-    var cornerRadius: CGFloat = 0 { didSet { configureCornerRadiusIfLoaded() } }
+    public var cornerRadius: CGFloat = 0 { didSet { configureCornerRadiusIfLoaded() } }
+    public var masksToBounds: Bool = false { didSet { configureMasksToBoundsIfLoaded() } }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
         configureCornerRadiusIfLoaded()
+        configureMasksToBoundsIfLoaded()
     }
     
     public func setContent(_ viewController: UIViewController) {
@@ -98,6 +100,10 @@ public class ContainerViewController: UIViewController {
     
     private func configureCornerRadiusIfLoaded() {
         viewIfLoaded?.layer.cornerRadius = cornerRadius
+    }
+    
+    private func configureMasksToBoundsIfLoaded() {
+        viewIfLoaded?.layer.masksToBounds = masksToBounds
     }
     
 }

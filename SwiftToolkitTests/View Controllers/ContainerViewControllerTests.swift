@@ -161,6 +161,24 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.view.layer.cornerRadius, 10.0)
     }
     
+    func testMasksToBoundsDefaultsToFalse() {
+        XCTAssertFalse(viewController.masksToBounds)
+        loadView()
+        XCTAssertFalse(viewController.view.layer.masksToBounds)
+    }
+    
+    func testMasksToBoundsBeforeLoad() {
+        viewController.masksToBounds = true
+        loadView()
+        XCTAssertTrue(viewController.view.layer.masksToBounds)
+    }
+    
+    func testMasksToBoundsAfterLoad() {
+        loadView()
+        viewController.masksToBounds = true
+        XCTAssertTrue(viewController.view.layer.masksToBounds)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }
