@@ -18,7 +18,7 @@ public class PictureInPictureViewController: UIViewController {
     private var PIP_CONTENT_CORNER_RADIUS : CGFloat {
         return max(PIP_CORNER_RADIUS - PIP_CONTENT_INSET, 0)
     }
-    
+    private let DEFAULT_PIP_SHADOW : ShadowDescriptor = .documentDropShadow
     
     private(set) public var primaryViewController: UIViewController!
     private let pictureInPictureWrapperContainerViewController = ContainerViewController()
@@ -26,9 +26,6 @@ public class PictureInPictureViewController: UIViewController {
     public var pictureInPictureViewController: UIViewController? {
         return pictureInPictureContainerViewController.contentViewController
     }
-    
-    
-    public var pictureOverlayShadow: ShadowDescriptor = .documentDropShadow { didSet { configureWrapperShadowIfLoaded() } }
     
     convenience init(primaryViewController: UIViewController) {
         self.init()
@@ -69,19 +66,13 @@ public class PictureInPictureViewController: UIViewController {
         pictureInPictureWrapperContainerViewController.view.backgroundColor = .white
         pictureInPictureWrapperContainerViewController.contentInset = .uniform(PIP_CONTENT_INSET)
         pictureInPictureWrapperContainerViewController.setContent(pictureInPictureContainerViewController)
+        pictureInPictureWrapperContainerViewController.layerDescriptor.shadow = DEFAULT_PIP_SHADOW
         
         addChild(pictureInPictureWrapperContainerViewController)
         view.addSubview(pictureInPictureWrapperContainerViewController.view)
         pictureInPictureWrapperContainerViewController.didMove(toParent: self)
         
-        configureWrapperShadowIfLoaded()
         activateLayoutConstraintsForPictureInPictureWrapperView()
-    }
-    
-    private func configureWrapperShadowIfLoaded() {
-        if let wrapperView = pictureInPictureWrapperContainerViewController.viewIfLoaded {
-            wrapperView.layer.shadow = pictureOverlayShadow
-        }
     }
     
     private func activateLayoutConstraintsForPictureInPictureWrapperView() {
@@ -98,7 +89,7 @@ public class PictureInPictureViewController: UIViewController {
     private func loadPictureInPictureContainerViewController() {
         pictureInPictureContainerViewController.contentInset = .zero
         pictureInPictureContainerViewController.cornerRadius = PIP_CONTENT_CORNER_RADIUS
-        pictureInPictureContainerViewController.masksToBounds = true  
+        pictureInPictureContainerViewController.masksToBounds = true
     }
 
     
