@@ -20,9 +20,9 @@ public class PictureInPictureViewController: UIViewController {
     }
     private let DEFAULT_PIP_SHADOW : ShadowDescriptor = .documentDropShadow
     
-    private(set) public var primaryViewController: UIViewController!
-    private let pictureInPictureWrapperContainerViewController = ContainerViewController()
-    private let pictureInPictureContainerViewController = ContainerViewController()
+    
+    private(set) public var backgroundContainerViewController = ContainerViewController()
+    private(set) public var pictureInPictureContainerViewController = ContainerViewController()
     public var pictureInPictureViewController: UIViewController? {
         return pictureInPictureContainerViewController.contentViewController
     }
@@ -37,46 +37,35 @@ public class PictureInPictureViewController: UIViewController {
         
         loadPrimaryViewController()
         loadPictureInPictureWrapperView()
-        loadPictureInPictureContainerViewController()
     }
     
     private func loadPrimaryViewController() {
-        guard let primaryViewController = primaryViewController else {
-            fatalError("Attempted to load PictureInPictureViewController without primaryViewController")
-        }
-        
-        addChild(primaryViewController)
-        view.addSubview(primaryViewController.view)
+        addChild(backgroundContainerViewController)
+        view.addSubview(backgroundContainerViewController.view)
         activateLayoutConstraintsForPrimaryViewController()
-        primaryViewController.didMove(toParent: self)
+        backgroundContainerViewController.didMove(toParent: self)
     }
     
     private func activateLayoutConstraintsForPrimaryViewController() {
-        guard let contentView = primaryViewController.view else { return }
+        let contentView = backgroundContainerViewController.view!
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentView.setNeedsLayout()
     }
     
     private func loadPictureInPictureWrapperView() {
-        pictureInPictureWrapperContainerViewController.cornerRadius = PIP_CORNER_RADIUS
-        pictureInPictureWrapperContainerViewController.view.backgroundColor = .white
-        pictureInPictureWrapperContainerViewController.contentInset = .uniform(PIP_CONTENT_INSET)
-        pictureInPictureWrapperContainerViewController.setContent(pictureInPictureContainerViewController)
-        pictureInPictureWrapperContainerViewController.layerDescriptor.shadow = DEFAULT_PIP_SHADOW
-        
-        addChild(pictureInPictureWrapperContainerViewController)
-        view.addSubview(pictureInPictureWrapperContainerViewController.view)
-        pictureInPictureWrapperContainerViewController.didMove(toParent: self)
-        
+        addChild(pictureInPictureContainerViewController)
+        view.addSubview(pictureInPictureContainerViewController.view)
         activateLayoutConstraintsForPictureInPictureWrapperView()
+        pictureInPictureContainerViewController.didMove(toParent: self)
     }
     
     private func activateLayoutConstraintsForPictureInPictureWrapperView() {
-        let pipView = pictureInPictureWrapperContainerViewController.view!
+        let pipView = pictureInPictureContainerViewController.view!
         
         pipView.translatesAutoresizingMaskIntoConstraints = false
         pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET).isActive = true
@@ -85,21 +74,11 @@ public class PictureInPictureViewController: UIViewController {
         pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT).isActive = true
         pipView.setNeedsLayout()
     }
-    
-    private func loadPictureInPictureContainerViewController() {
-        pictureInPictureContainerViewController.contentInset = .zero
-        pictureInPictureContainerViewController.cornerRadius = PIP_CONTENT_CORNER_RADIUS
-        pictureInPictureContainerViewController.masksToBounds = true
-    }
 
     
     
     public func setPrimary(_ viewController: UIViewController) {
-        if isViewLoaded {
-            fatalError("Attempted to set primaryViewController after it was already loaded")
-        } else {
-            primaryViewController = viewController
-        }
+        backgroundContainerViewController.setContent(viewController)
     }
     
     public func setPictureInPicture(_ viewController: UIViewController) {
