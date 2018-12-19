@@ -33,15 +33,23 @@ public class ContainerViewController: UIViewController {
     public var contentInset: ContentInset = .zero { didSet { configureLayoutConstraints() } }
     private var activeLayoutConstraints: [NSLayoutConstraint] = []
     
-    public var cornerRadius: CGFloat = 0 { didSet { configureCornerRadiusIfLoaded() } }
-    public var masksToBounds: Bool = false { didSet { configureMasksToBoundsIfLoaded() } }
+    public var layerDescriptor : ViewLayerDescriptor = ViewLayerDescriptor() {
+        didSet { configureViewLayerIfLoaded() }
+    }
+    public var cornerRadius: CGFloat {
+        get { return layerDescriptor.cornerRadius }
+        set { layerDescriptor.cornerRadius = newValue }
+    }
+    public var masksToBounds: Bool {
+        get { return layerDescriptor.masksToBounds }
+        set { layerDescriptor.masksToBounds = newValue }
+    }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
-        configureCornerRadiusIfLoaded()
-        configureMasksToBoundsIfLoaded()
+        configureViewLayerIfLoaded()
     }
     
     public func setContent(_ viewController: UIViewController) {
@@ -98,12 +106,7 @@ public class ContainerViewController: UIViewController {
         }
     }
     
-    private func configureCornerRadiusIfLoaded() {
-        viewIfLoaded?.layer.cornerRadius = cornerRadius
+    private func configureViewLayerIfLoaded() {
+        viewIfLoaded?.layer.configure(with: layerDescriptor)
     }
-    
-    private func configureMasksToBoundsIfLoaded() {
-        viewIfLoaded?.layer.masksToBounds = masksToBounds
-    }
-    
 }

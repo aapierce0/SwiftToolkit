@@ -28,6 +28,7 @@
 		C608776D21C96CF20061D51C /* PictureInPictureViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776C21C96CF20061D51C /* PictureInPictureViewCoordinator.swift */; };
 		C608777021C96D580061D51C /* ShadowEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608776E21C96D580061D51C /* ShadowEditorViewController.swift */; };
 		C608777121C96D580061D51C /* ShadowEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C608776F21C96D580061D51C /* ShadowEditorViewController.xib */; };
+		C608777321CA9A880061D51C /* ViewLayerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608777221CA9A880061D51C /* ViewLayerDescriptor.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
@@ -100,6 +101,7 @@
 		C608776C21C96CF20061D51C /* PictureInPictureViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewCoordinator.swift; sourceTree = "<group>"; };
 		C608776E21C96D580061D51C /* ShadowEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEditorViewController.swift; sourceTree = "<group>"; };
 		C608776F21C96D580061D51C /* ShadowEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShadowEditorViewController.xib; sourceTree = "<group>"; };
+		C608777221CA9A880061D51C /* ViewLayerDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayerDescriptor.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
 		C66EE2B721C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				C6CB39CF21C187D400816242 /* ItemSectionBuilder.swift */,
 				C6CB39CB21C182BC00816242 /* Sectionable.swift */,
 				C608776121C95C3D0061D51C /* ShadowDescriptor.swift */,
+				C608777221CA9A880061D51C /* ViewLayerDescriptor.swift */,
 			);
 			path = SwiftToolkit;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */,
 				C608773721C7FEDE0061D51C /* PictureInPictureViewController.swift in Sources */,
 				C608776221C95C3D0061D51C /* ShadowDescriptor.swift in Sources */,
+				C608777321CA9A880061D51C /* ViewLayerDescriptor.swift in Sources */,
 				C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,

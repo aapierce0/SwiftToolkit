@@ -9,6 +9,13 @@
 import Foundation
 
 public extension CALayer {
+    
+    func configure(with layerDescriptor: ViewLayerDescriptor) {
+        masksToBounds = layerDescriptor.masksToBounds
+        cornerRadius = layerDescriptor.cornerRadius
+        shadow = layerDescriptor.shadow
+    }
+    
     var shadow: ShadowDescriptor {
         get {
             var shadow = ShadowDescriptor()
