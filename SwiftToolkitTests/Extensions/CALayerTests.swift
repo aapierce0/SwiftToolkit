@@ -10,11 +10,19 @@ import XCTest
 @testable import SwiftToolkit
 
 class CALayerTests: XCTestCase {
-
-    func testGetter() {
+    
+    var layer: CALayer!
+    
+    override func setUp() {
         let view = UIView()
-        let layer = view.layer
-        
+        layer = view.layer
+    }
+    
+    override func tearDown() {
+        layer = nil
+    }
+
+    func testShadowGetter() {
         layer.shadowOpacity = 0.5
         layer.shadowColor = UIColor.blue.cgColor
         layer.shadowOffset = CGSize(width: 5.0, height: 2.0)
@@ -30,7 +38,7 @@ class CALayerTests: XCTestCase {
         XCTAssertNil(shadow.path)
     }
 
-    func testSetter() {
+    func testShadowSetter() {
         var shadow = ShadowDescriptor.none
         shadow.opacity = 0.5
         shadow.uiColor = .blue
@@ -38,8 +46,6 @@ class CALayerTests: XCTestCase {
         shadow.radius = 10.0
         shadow.path = nil
         
-        let view = UIView()
-        let layer = view.layer
         layer.shadow = shadow
         
         XCTAssertEqual(layer.shadowOpacity, 0.5)
@@ -47,6 +53,27 @@ class CALayerTests: XCTestCase {
         XCTAssertEqual(layer.shadowOffset, CGSize(width: 5.0, height: 2.0))
         XCTAssertEqual(layer.shadowRadius, 10.0)
         XCTAssertNil(layer.shadowPath)
+    }
+    
+    func testBorderGetter() {
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.blue.cgColor
+        
+        let border = layer.border
+        XCTAssertEqual(border.width, 2.0)
+        XCTAssertEqual(border.color, UIColor.blue.cgColor)
+    }
+    
+    func testBorderSetter() {
+        var border = BorderDescriptor()
+        border.width = 2.0
+        border.color = UIColor.blue.cgColor
+
+        layer.border = border
+        
+        XCTAssertEqual(layer.borderWidth, 2.0)
+        XCTAssertEqual(layer.borderColor, UIColor.blue.cgColor)
+        
     }
 
 }

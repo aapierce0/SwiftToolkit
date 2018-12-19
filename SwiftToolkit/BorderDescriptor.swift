@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct BorderDescriptor {
-    var color: CGColor? = nil
-    var width: CGFloat = 0.0
+public struct BorderDescriptor {
+    public var color: CGColor? = nil
+    public var width: CGFloat = 0.0
     
-    static var none : BorderDescriptor {
+    public static var none : BorderDescriptor {
         return BorderDescriptor()
     }
     
-    static var hairline : BorderDescriptor {
+    public static var hairline : BorderDescriptor {
         var border = BorderDescriptor()
         border.color = UIColor.black.cgColor
         border.width = .hairline

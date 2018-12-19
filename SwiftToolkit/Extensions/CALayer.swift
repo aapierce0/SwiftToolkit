@@ -35,5 +35,19 @@ public extension CALayer {
             shadowPath = newValue.path
         }
     }
+    
+    var border : BorderDescriptor {
+        get {
+            var border = BorderDescriptor()
+            border.width = borderWidth
+            border.color = borderColor
+            return border
+        }
+        
+        set {
+            borderWidth = newValue.width
+            borderColor = newValue.color
+        }
+    }
 }
 
