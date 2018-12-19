@@ -98,8 +98,7 @@ public class PictureInPictureViewController: UIViewController {
     private func loadPictureInPictureContainerViewController() {
         pictureInPictureContainerViewController.contentInset = .zero
         pictureInPictureContainerViewController.cornerRadius = PIP_CONTENT_CORNER_RADIUS
-        
-        pictureInPictureContainerViewController.view.layer.masksToBounds = true
+        pictureInPictureContainerViewController.masksToBounds = true  
     }
 
     
