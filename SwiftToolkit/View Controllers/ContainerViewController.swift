@@ -16,9 +16,9 @@ public class ContainerViewController: UIViewController {
         public var left: CGFloat = 0
         public var right: CGFloat = 0
         
-        static let zero : ContentInset = ContentInset()
+        public static let zero : ContentInset = ContentInset()
         
-        static func uniform(_ inset: CGFloat) -> ContentInset {
+        public static func uniform(_ inset: CGFloat) -> ContentInset {
             var contentInset = ContentInset()
             contentInset.top = inset
             contentInset.left = inset
