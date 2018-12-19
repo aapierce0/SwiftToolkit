@@ -76,6 +76,18 @@ class PictureInPictureViewControllerTests: XCTestCase {
         XCTAssert(viewController.pictureInPictureViewController === mockViewController)
     }
     
+    func testPictureInPictureViewControllerMasksToBounds() {
+        let primaryViewController = MockViewController()
+        viewController.setPrimary(primaryViewController)
+        
+        let mockViewController = MockViewController()
+        viewController.setPictureInPicture(mockViewController)
+        loadView()
+        
+        let pipParentViewController = mockViewController.parent!
+        XCTAssertEqual(pipParentViewController.view.layer.masksToBounds, true)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }
