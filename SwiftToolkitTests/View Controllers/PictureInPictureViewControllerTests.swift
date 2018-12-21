@@ -92,6 +92,41 @@ class PictureInPictureViewControllerTests: XCTestCase {
         XCTAssert(viewController.backgroundContainerViewController.contentViewController === mockBackground)
         XCTAssert(viewController.pictureInPictureContainerViewController.contentViewController === mockPIP)
     }
+    
+    func testHidesPIPViewControllerAfterLoad() {
+        resizeView(CGSize(width: 400, height: 800))
+        viewController.view.layoutIfNeeded()
+        viewController.hidePictureInPictureViewController()
+        
+        let rootBounds = viewController.view.bounds
+        let pipFrame = viewController.pictureInPictureContainerViewController.view.frame
+        
+        XCTAssertFalse(rootBounds.intersects(pipFrame))
+    }
+    
+    func testHidesPIPViewControllerBeforeLoad() {
+        viewController.hidePictureInPictureViewController()
+        
+        resizeView(CGSize(width: 400, height: 800))
+        viewController.view.layoutIfNeeded()
+        
+        let rootBounds = viewController.view.bounds
+        let pipFrame = viewController.pictureInPictureContainerViewController.view.frame
+        
+        XCTAssertFalse(rootBounds.intersects(pipFrame))
+    }
+    
+    func testShowsPipViewControllerAfterLoad() {
+        viewController.hidePictureInPictureViewController()
+        resizeView(CGSize(width: 400, height: 800))
+        viewController.view.layoutIfNeeded()
+        
+        viewController.showPictureInPictureViewController()
+        
+        let rootBounds = viewController.view.bounds
+        let pipFrame = viewController.pictureInPictureContainerViewController.view.frame
+        XCTAssertTrue(rootBounds.intersects(pipFrame))
+    }
 
 
     

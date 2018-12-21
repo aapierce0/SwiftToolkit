@@ -17,6 +17,9 @@ public class PictureInPictureViewController: UIViewController {
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var pictureInPictureContainerViewController = ContainerViewController()
     
+    private var activePictureInPictureLayoutConstraints: [NSLayoutConstraint] = []
+    private(set) var isPictureInPictureViewControllerHidden : Bool = false { didSet { configurePIPViewLayoutIfLoaded() } }
+    
     convenience init(background backgroundViewController: UIViewController? = nil, pictureInPicture pipViewController: UIViewController? = nil) {
         self.init()
         
@@ -28,6 +31,11 @@ public class PictureInPictureViewController: UIViewController {
             pictureInPictureContainerViewController.setContent(pipViewController)
         }
     }
+    
+    
+    
+    
+    // MARK: - Construction
     
     override public func loadView() {
         view = UIView()
@@ -57,18 +65,77 @@ public class PictureInPictureViewController: UIViewController {
     private func loadPictureInPictureContainerViewController() {
         addChild(pictureInPictureContainerViewController)
         view.addSubview(pictureInPictureContainerViewController.view)
-        activateLayoutConstraintsForPictureInPictureWrapperView()
+        configurePIPViewLayout()
         pictureInPictureContainerViewController.didMove(toParent: self)
+    }
+    
+    private func configurePIPViewLayoutIfLoaded() {
+        if isViewLoaded {
+            configurePIPViewLayout()
+        }
+    }
+    
+    private func configurePIPViewLayout() {
+        deactivateAllLayoutConstraintsForPictureInPictureView()
+        if isPictureInPictureViewControllerHidden {
+            activateLayoutConstraintsForPictureInPictureWrapperViewOffScreen()
+        } else {
+            activateLayoutConstraintsForPictureInPictureWrapperView()
+        }
     }
     
     private func activateLayoutConstraintsForPictureInPictureWrapperView() {
         let pipView = pictureInPictureContainerViewController.view!
         
+        func activate(_ layoutConstraint: NSLayoutConstraint) {
+            activateLayoutConstraintForPictureInPictureView(layoutConstraint)
+        }
+        
         pipView.translatesAutoresizingMaskIntoConstraints = false
-        pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET).isActive = true
-        pipView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0 - PIP_INSET).isActive = true
-        pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH).isActive = true
-        pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT).isActive = true
+        activate(pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET))
+        activate(pipView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0 - PIP_INSET))
+        activate(pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH))
+        activate(pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT))
         pipView.setNeedsLayout()
     }
+    
+    private func activateLayoutConstraintsForPictureInPictureWrapperViewOffScreen() {
+        let pipView = pictureInPictureContainerViewController.view!
+        
+        func activate(_ layoutConstraint: NSLayoutConstraint) {
+            activateLayoutConstraintForPictureInPictureView(layoutConstraint)
+        }
+        
+        pipView.translatesAutoresizingMaskIntoConstraints = false
+        activate(pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET))
+        activate(pipView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: PIP_INSET))
+        activate(pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH))
+        activate(pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT))
+        pipView.setNeedsLayout()
+    }
+    
+    private func activateLayoutConstraintForPictureInPictureView(_ layoutConstraint: NSLayoutConstraint) {
+        layoutConstraint.isActive = true
+        activePictureInPictureLayoutConstraints.append(layoutConstraint)
+    }
+    
+    private func deactivateAllLayoutConstraintsForPictureInPictureView() {
+        while let layoutConstraint = activePictureInPictureLayoutConstraints.popLast() {
+            layoutConstraint.isActive = false
+            pictureInPictureContainerViewController.viewIfLoaded?.removeConstraint(layoutConstraint)
+        }
+    }
+    
+    // MARK: -
+    
+    func hidePictureInPictureViewController() {
+        isPictureInPictureViewControllerHidden = true
+        viewIfLoaded?.layoutIfNeeded()
+    }
+    
+    func showPictureInPictureViewController() {
+        isPictureInPictureViewControllerHidden = false
+        viewIfLoaded?.layoutIfNeeded()
+    }
+    
 }
