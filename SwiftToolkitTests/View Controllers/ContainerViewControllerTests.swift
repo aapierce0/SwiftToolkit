@@ -106,7 +106,7 @@ class ContainerViewControllerTests: XCTestCase {
         
         let scrollViewController = ScrollViewController()
         scrollViewController.constrainsContentToFitWidth = true
-        scrollViewController.setContent(mockViewController)
+        scrollViewController.contentContainerViewController.setContent(mockViewController)
         
         let containerViewController = ContainerViewController()
         containerViewController.view.backgroundColor = .white

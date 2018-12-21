@@ -12,7 +12,7 @@ public class ScrollViewController: UIViewController {
     
     public weak var scrollView: UIScrollView!
     
-    private(set) public var contentViewController: UIViewController!
+    private(set) public var contentContainerViewController = ContainerViewController()
     
     public var constrainsContentToFitWidth: Bool = false { didSet { activateLayoutConstraintsForContentViewIfLoaded() } }
     private var contentFitsWidthConstraint: NSLayoutConstraint!
@@ -23,7 +23,7 @@ public class ScrollViewController: UIViewController {
     
     public convenience init(wrapping viewController: UIViewController) {
         self.init()
-        setContent(viewController)
+        contentContainerViewController.setContent(viewController)
     }
     
     override public func loadView() {
@@ -53,21 +53,11 @@ public class ScrollViewController: UIViewController {
         setContentViewControllerInScrollView()
     }
     
-    public func setContent(_ viewController: UIViewController) {
-        if isViewLoaded {
-            fatalError("Attempted to set the content view controller after view was loaded")
-        } else {
-            contentViewController = viewController
-        }
-    }
-    
     private func setContentViewControllerInScrollView() {
-        guard let viewController = contentViewController else { return }
-        
-        addChild(viewController)
-        scrollView.addSubview(viewController.view)
+        addChild(contentContainerViewController)
+        scrollView.addSubview(contentContainerViewController.view)
         activateLayoutConstraintsForContentView()
-        viewController.didMove(toParent: self)
+        contentContainerViewController.didMove(toParent: self)
     }
     
     private func activateLayoutConstraintsForContentViewIfLoaded() {
@@ -78,13 +68,13 @@ public class ScrollViewController: UIViewController {
     
     private var isContentViewLoaded: Bool {
         guard isViewLoaded else { return false }
-        guard let contentViewController = contentViewController else { return false }
-        return contentViewController.isViewLoaded
+        return contentContainerViewController.isViewLoaded
     }
     
     internal func activateLayoutConstraintsForContentView() {
-        let contentView = contentViewController.view!
+        let contentView = contentContainerViewController.view!
         
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
@@ -98,7 +88,7 @@ public class ScrollViewController: UIViewController {
         let widthConstraintIsActive = constrainsContentToFitWidth
         
         if contentFitsWidthConstraint == nil {
-            contentFitsWidthConstraint = contentViewController.view.widthAnchor.constraint(equalTo: view.widthAnchor)
+            contentFitsWidthConstraint = contentContainerViewController.view.widthAnchor.constraint(equalTo: view.widthAnchor)
         }
         
         contentFitsWidthConstraint.isActive = widthConstraintIsActive
@@ -108,7 +98,7 @@ public class ScrollViewController: UIViewController {
         let heightConstraintIsActive = constrainsContentToFitHeight
         
         if contentFitsHeightConstraint == nil {
-            contentFitsHeightConstraint = contentViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor)
+            contentFitsHeightConstraint = contentContainerViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor)
         }
         
         contentFitsHeightConstraint.isActive = heightConstraintIsActive

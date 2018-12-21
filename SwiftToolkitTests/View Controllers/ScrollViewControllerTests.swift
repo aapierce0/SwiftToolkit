@@ -40,20 +40,10 @@ class ScrollViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.scrollView.frame, CGRect(x: 0, y: 0, width: 120, height: 240))
     }
     
-    func testAddContentViewControllerBeforeLoad() {
-        let mockViewController = MockViewController()
-        viewController.setContent(mockViewController)
-        
-        loadView()
-        
-        XCTAssert(viewController.contentViewController === mockViewController)
-        XCTAssert(mockViewController.view.superview === viewController.scrollView)
-    }
-    
     func testLargeContentScrolls() {
         
         let mockViewController = createMockViewController(constrainedTo: CGSize(width: 100, height: 400))
-        viewController.setContent(mockViewController)
+        viewController.contentContainerViewController.setContent(mockViewController)
         
         setViewSize(CGSize(width: 100, height: 100))
         
@@ -65,7 +55,7 @@ class ScrollViewControllerTests: XCTestCase {
         
         let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
         
-        viewController.setContent(mockViewController)
+        viewController.contentContainerViewController.setContent(mockViewController)
         setViewSize(CGSize(width: 100, height: 100))
         
         XCTAssertEqual(viewController.scrollView.contentSize, CGSize(width: 100, height: 400))
@@ -75,7 +65,7 @@ class ScrollViewControllerTests: XCTestCase {
         
         let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
         
-        viewController.setContent(mockViewController)
+        viewController.contentContainerViewController.setContent(mockViewController)
         setViewSize(CGSize(width: 100, height: 100))
         
         viewController.constrainsContentToFitWidth = true
@@ -90,7 +80,7 @@ class ScrollViewControllerTests: XCTestCase {
     func testConstrainsContentToFitHeight() {
         let mockViewController = createMockViewController(constrainedTo: CGSize(width: 400, height: 400), priority: .defaultLow)
         
-        viewController.setContent(mockViewController)
+        viewController.contentContainerViewController.setContent(mockViewController)
         setViewSize(CGSize(width: 100, height: 100))
         
         viewController.constrainsContentToFitHeight = true
