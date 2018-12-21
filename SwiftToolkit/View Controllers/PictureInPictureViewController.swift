@@ -9,8 +9,6 @@
 import UIKit
 
 fileprivate let PIP_INSET : CGFloat = 8.0
-fileprivate let PIP_HEIGHT : CGFloat = 120
-fileprivate let PIP_WIDTH : CGFloat = 80
 
 public class PictureInPictureViewController: UIViewController {
     
@@ -94,8 +92,6 @@ public class PictureInPictureViewController: UIViewController {
         pipView.translatesAutoresizingMaskIntoConstraints = false
         activate(pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET))
         activate(pipView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0 - PIP_INSET))
-        activate(pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH))
-        activate(pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT))
         pipView.setNeedsLayout()
     }
     
@@ -109,8 +105,6 @@ public class PictureInPictureViewController: UIViewController {
         pipView.translatesAutoresizingMaskIntoConstraints = false
         activate(pipView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: PIP_INSET))
         activate(pipView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: PIP_INSET))
-        activate(pipView.widthAnchor.constraint(equalToConstant: PIP_WIDTH))
-        activate(pipView.heightAnchor.constraint(equalToConstant: PIP_HEIGHT))
         pipView.setNeedsLayout()
     }
     
@@ -138,4 +132,9 @@ public class PictureInPictureViewController: UIViewController {
         viewIfLoaded?.layoutIfNeeded()
     }
     
+    
+    public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        super.preferredContentSizeDidChange(forChildContentContainer: container)
+        view.setNeedsLayout()
+    }
 }

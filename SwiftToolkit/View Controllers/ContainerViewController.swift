@@ -39,10 +39,14 @@ public class ContainerViewController: UIViewController {
     
     public var backgroundColor : UIColor? = nil { didSet { configureBackgroundColorIfLoaded() } }
     public var alpha : CGFloat = 1.0 { didSet { configureAlphaIfLoaded() } }
+    
+    private var widthLayoutConstraint : NSLayoutConstraint!
+    private var heightLayoutConstraint : NSLayoutConstraint!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
+        addSizeConstraintsToView()
         addContentViewControllerToHierarchy()
         configureViewLayerIfLoaded()
         configureBackgroundColorIfLoaded()
@@ -67,12 +71,22 @@ public class ContainerViewController: UIViewController {
         }
     }
     
+    private func addSizeConstraintsToView() {
+        widthLayoutConstraint = view.widthAnchor.constraint(equalToConstant: preferredContentSize.width)
+        widthLayoutConstraint.priority = .defaultLow
+        widthLayoutConstraint.isActive = true
+        heightLayoutConstraint = view.heightAnchor.constraint(equalToConstant: preferredContentSize.height)
+        heightLayoutConstraint.priority = .defaultLow
+        heightLayoutConstraint.isActive = true
+    }
+    
     private func addContentViewControllerToHierarchy() {
         guard let viewController = contentViewController else { return }
         
         addChild(viewController)
         view.addSubview(viewController.view)
         activateLayoutConstraintsForContentViewController()
+        preferredContentSize = viewController.preferredContentSize
         viewController.didMove(toParent: self)
     }
     
@@ -116,6 +130,20 @@ public class ContainerViewController: UIViewController {
     private func configureAlphaIfLoaded() {
         viewIfLoaded?.alpha = alpha
     }
+    
+    public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        super.preferredContentSizeDidChange(forChildContentContainer: container)
+        preferredContentSize = container.preferredContentSize
+        viewIfLoaded?.setNeedsUpdateConstraints()
+    }
+    
+    public override func updateViewConstraints() {
+        super.updateViewConstraints()
+        heightLayoutConstraint.constant = preferredContentSize.height
+        widthLayoutConstraint.constant = preferredContentSize.width
+        view.setNeedsLayout()
+    }
+    
 }
 
 // MARK: convenience properties

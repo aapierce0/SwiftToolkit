@@ -236,6 +236,23 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.view.alpha, 0.2, accuracy: 0.00001)
     }
     
+    func testInheritsPreferredContentSizeOnSet() {
+        let mockViewController = MockViewController()
+        mockViewController.preferredContentSize = CGSize(width: 100.0, height: 100.0)
+        
+        viewController.setContent(mockViewController)
+        XCTAssertEqual(viewController.preferredContentSize, CGSize(width: 100.0, height: 100.0))
+    }
+    
+    func testUpdatePreferredContentSizeDynamically() {
+        let mockViewController = MockViewController()
+        mockViewController.preferredContentSize = CGSize(width: 100.0, height: 100.0)
+        
+        viewController.setContent(mockViewController)
+        mockViewController.preferredContentSize = CGSize(width: 120.0, height: 200.0)
+        XCTAssertEqual(viewController.preferredContentSize, CGSize(width: 120.0, height: 200.0))
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }

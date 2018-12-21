@@ -56,6 +56,7 @@ class PictureInPictureViewControllerTests: XCTestCase {
         let primaryViewController = MockViewController()
         viewController.backgroundContainerViewController.setContent(primaryViewController)
         let pipViewController = MockViewController()
+        pipViewController.preferredContentSize = CGSize(width: 80, height: 120)
         viewController.pictureInPictureContainerViewController.setContent(pipViewController)
         loadView()
         resizeView(CGSize(width: 400, height: 800))
@@ -67,6 +68,26 @@ class PictureInPictureViewControllerTests: XCTestCase {
         
         let contentView = pipViewController.view!
         XCTAssertEqual(contentView.frame, CGRect(x: 0.0, y: 0.0, width: 80, height: 120))
+    }
+    
+    func testPictureInPictureReactsToChangesInPreferredContentSize() {
+        let primaryViewController = MockViewController()
+        viewController.backgroundContainerViewController.setContent(primaryViewController)
+        let pipViewController = MockViewController()
+        pipViewController.preferredContentSize = CGSize(width: 80, height: 120)
+        viewController.pictureInPictureContainerViewController.setContent(pipViewController)
+        loadView()
+        resizeView(CGSize(width: 400, height: 800))
+        viewController.view.layoutIfNeeded()
+        
+        pipViewController.preferredContentSize = CGSize(width: 120, height: 80)
+        viewController.view.layoutIfNeeded()
+        
+        let wrapperView = viewController.view.subviews[1]
+        XCTAssertEqual(wrapperView.frame, CGRect(x: 272, y: 8, width: 120, height: 80))
+        
+        let contentView = pipViewController.view!
+        XCTAssertEqual(contentView.frame, CGRect(x: 0.0, y: 0.0, width: 120, height: 80))
     }
     
     func testPictureInPictureAfterLoad() {
