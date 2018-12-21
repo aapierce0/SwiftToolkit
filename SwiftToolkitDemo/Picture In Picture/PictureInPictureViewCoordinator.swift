@@ -65,6 +65,7 @@ class PictureInPictureViewCoordinator {
         accessoryWrapper.setContent(accessoryViewController)
         accessoryWrapper.masksToBounds = true
         accessoryWrapper.cornerRadius = 8.0
+        accessoryWrapper.preferredContentSize = CGSize(width: 200, height: 120.0)
         return accessoryWrapper
     }
     
