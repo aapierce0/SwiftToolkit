@@ -53,6 +53,7 @@ class PictureInPictureViewCoordinator {
         pipViewController.pictureInPictureContainerViewController.setContent(accessoryViewController)
         
         configureAppearanceOfPIPViewController()
+        configureNavigationItemOfPIPViewController()
     }
     
     private func viewControllerForPIPBackground() -> UIViewController {
@@ -73,6 +74,28 @@ class PictureInPictureViewCoordinator {
         pipViewController.pictureInPictureContainerViewController.cornerRadius = 12.0
         pipViewController.pictureInPictureContainerViewController.layerDescriptor.border.color = UIColor(white: 0.7, alpha: 1.0).cgColor
         pipViewController.pictureInPictureContainerViewController.layerDescriptor.border.width = .hairline
+    }
+    
+    private func configureNavigationItemOfPIPViewController() {
+        pipViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(PictureInPictureViewCoordinator.toggleBarButtonItemTapped(_:)))
+    }
+    
+    @objc private func toggleBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        toggleAppearanceOfPictureInPictureOverlay()
+    }
+    
+    private func toggleAppearanceOfPictureInPictureOverlay() {
+        let isHidden = pipViewController.isPictureInPictureViewControllerHidden
+        
+        UIView.animate(withDuration: 0.3) {
+            if isHidden {
+                self.pipViewController.showPictureInPictureViewController()
+                self.pipViewController.pictureInPictureContainerViewController.view.alpha = 1.0
+            } else {
+                self.pipViewController.hidePictureInPictureViewController()
+                self.pipViewController.pictureInPictureContainerViewController.view.alpha = 0.0
+            }
+        }
     }
     
     private func createWrapperViewControllerContainingContent() -> StackViewController {
