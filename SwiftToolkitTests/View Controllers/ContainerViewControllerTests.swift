@@ -224,6 +224,18 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.view.backgroundColor, .red)
     }
     
+    func testSetAlphaBeforeLoad() {
+        viewController.alpha = 0.5
+        loadView()
+        XCTAssertEqual(viewController.view.alpha, 0.5)
+    }
+    
+    func testSetAlphaAfterLoad() {
+        loadView()
+        viewController.alpha = 0.2
+        XCTAssertEqual(viewController.view.alpha, 0.2, accuracy: 0.00001)
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }

@@ -38,6 +38,7 @@ public class ContainerViewController: UIViewController {
     }
     
     public var backgroundColor : UIColor? = nil { didSet { configureBackgroundColorIfLoaded() } }
+    public var alpha : CGFloat = 1.0 { didSet { configureAlphaIfLoaded() } }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ public class ContainerViewController: UIViewController {
         addContentViewControllerToHierarchy()
         configureViewLayerIfLoaded()
         configureBackgroundColorIfLoaded()
+        configureAlphaIfLoaded()
     }
     
     public func setContent(_ viewController: UIViewController?) {
@@ -109,6 +111,10 @@ public class ContainerViewController: UIViewController {
     
     private func configureBackgroundColorIfLoaded() {
         viewIfLoaded?.backgroundColor = backgroundColor
+    }
+    
+    private func configureAlphaIfLoaded() {
+        viewIfLoaded?.alpha = alpha
     }
 }
 
