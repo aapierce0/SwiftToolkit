@@ -18,6 +18,9 @@ public class PictureInPictureViewController: UIViewController {
     private var activePictureInPictureLayoutConstraints: [NSLayoutConstraint] = []
     private(set) public var isPictureInPictureViewControllerHidden : Bool = false { didSet { configurePIPViewLayoutIfLoaded() } }
     
+    private var pipHeightLayoutConstraint: NSLayoutConstraint!
+    private var pipWidthLayoutConstraint: NSLayoutConstraint!
+    
     convenience init(background backgroundViewController: UIViewController? = nil, pictureInPicture pipViewController: UIViewController? = nil) {
         self.init()
         
@@ -63,8 +66,20 @@ public class PictureInPictureViewController: UIViewController {
     private func loadPictureInPictureContainerViewController() {
         addChild(pictureInPictureContainerViewController)
         view.addSubview(pictureInPictureContainerViewController.view)
+        createPictureInPictureContainerLayoutConstraints()
         configurePIPViewLayout()
         pictureInPictureContainerViewController.didMove(toParent: self)
+    }
+    
+    private func createPictureInPictureContainerLayoutConstraints() {
+        let pipView = pictureInPictureContainerViewController.view!
+        let pipSize = pictureInPictureContainerViewController.preferredContentSize
+        pipWidthLayoutConstraint = pipView.widthAnchor.constraint(equalToConstant: pipSize.width)
+        pipWidthLayoutConstraint.priority = .defaultLow
+        pipWidthLayoutConstraint.isActive = true
+        pipHeightLayoutConstraint = pipView.heightAnchor.constraint(equalToConstant: pipSize.height)
+        pipHeightLayoutConstraint.priority = .defaultLow
+        pipHeightLayoutConstraint.isActive = true
     }
     
     private func configurePIPViewLayoutIfLoaded() {
@@ -135,6 +150,15 @@ public class PictureInPictureViewController: UIViewController {
     
     public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
+        view.setNeedsUpdateConstraints()
+        view.setNeedsLayout()
+    }
+    
+    public override func updateViewConstraints() {
+        super.updateViewConstraints()
+        let pipSize = pictureInPictureContainerViewController.preferredContentSize
+        pipHeightLayoutConstraint.constant = pipSize.height
+        pipWidthLayoutConstraint.constant = pipSize.width
         view.setNeedsLayout()
     }
 }
