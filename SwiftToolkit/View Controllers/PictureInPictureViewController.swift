@@ -18,7 +18,7 @@ public class PictureInPictureViewController: UIViewController {
     private(set) public var pictureInPictureContainerViewController = ContainerViewController()
     
     private var activePictureInPictureLayoutConstraints: [NSLayoutConstraint] = []
-    private(set) var isPictureInPictureViewControllerHidden : Bool = false { didSet { configurePIPViewLayoutIfLoaded() } }
+    private(set) public var isPictureInPictureViewControllerHidden : Bool = false { didSet { configurePIPViewLayoutIfLoaded() } }
     
     convenience init(background backgroundViewController: UIViewController? = nil, pictureInPicture pipViewController: UIViewController? = nil) {
         self.init()
@@ -128,12 +128,12 @@ public class PictureInPictureViewController: UIViewController {
     
     // MARK: -
     
-    func hidePictureInPictureViewController() {
+    public func hidePictureInPictureViewController() {
         isPictureInPictureViewControllerHidden = true
         viewIfLoaded?.layoutIfNeeded()
     }
     
-    func showPictureInPictureViewController() {
+    public func showPictureInPictureViewController() {
         isPictureInPictureViewControllerHidden = false
         viewIfLoaded?.layoutIfNeeded()
     }
