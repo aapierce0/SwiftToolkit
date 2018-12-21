@@ -90,10 +90,10 @@ class PictureInPictureViewCoordinator {
         UIView.animate(withDuration: 0.3) {
             if isHidden {
                 self.pipViewController.showPictureInPictureViewController()
-                self.pipViewController.pictureInPictureContainerViewController.view.alpha = 1.0
+                self.pipViewController.pictureInPictureContainerViewController.alpha = 1.0
             } else {
                 self.pipViewController.hidePictureInPictureViewController()
-                self.pipViewController.pictureInPictureContainerViewController.view.alpha = 0.0
+                self.pipViewController.pictureInPictureContainerViewController.alpha = 0.0
             }
         }
     }
