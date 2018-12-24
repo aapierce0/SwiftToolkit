@@ -14,6 +14,8 @@ public class StackViewController: UIViewController {
     
     private(set) public var arrangedViewControllers: [UIViewController] = []
     
+    public var axis: NSLayoutConstraint.Axis = .vertical { didSet { configureStackViewAxisIfLoaded() } }
+    
     override public func loadView() {
         view = UIView()
         view.backgroundColor = .clear
@@ -27,6 +29,7 @@ public class StackViewController: UIViewController {
         self.stackView = stackView
         
         activateStackViewLayoutConstraints()
+        configureStackViewAxisIfLoaded()
     }
     
     private func activateStackViewLayoutConstraints() {
@@ -36,7 +39,12 @@ public class StackViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
         addAllArrangedViewControllersToStackView()
+    }
+    
+    private func configureStackViewAxisIfLoaded() {
+        stackView?.axis = axis
     }
     
     private func addAllArrangedViewControllersToStackView() {

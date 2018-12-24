@@ -164,7 +164,23 @@ class StackViewControllerTests: XCTestCase {
         XCTAssertEqual(mockViewController2.view.frame, CGRect(x: 0, y: 25, width: 100, height: 175))
     }
     
+    func testSetStackViewAxisBeforeLoad() {
+        viewController.axis = .horizontal
+        loadView()
+        XCTAssertEqual(viewController.stackView.axis, .horizontal)
+    }
     
+    func testSetStackViewAxisAfterLoad() {
+        loadView()
+        viewController.axis = .horizontal
+        XCTAssertEqual(viewController.stackView.axis, .horizontal)
+    }
+    
+    func testStackViewDefaultAxisIsVertical() {
+        XCTAssertEqual(viewController.axis, .vertical)
+        loadView()
+        XCTAssertEqual(viewController.stackView.axis, .vertical)
+    }
     
     @discardableResult func loadView() -> UIView {
         return viewController.view
