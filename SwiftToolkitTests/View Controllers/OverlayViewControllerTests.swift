@@ -37,8 +37,25 @@ class OverlayViewControllerTests: XCTestCase {
         XCTAssert(overlayView.descends(from: rootView))
     }
     
+    func testBackgroundViewControllerResizesWithRootView() {
+        loadView()
+        let backgroundView = viewController.backgroundContainerViewController.view!
+        
+        resizeView(CGSize(width: 100.0, height: 100.0))
+        XCTAssertEqual(backgroundView.bounds.size, CGSize(width: 100.0, height: 100.0))
+        
+        resizeView(CGSize(width: 60.0, height: 140.0))
+        XCTAssertEqual(backgroundView.bounds.size, CGSize(width: 60.0, height: 140.0))
+    }
+    
     func loadView() {
         let _ = viewController.view
+    }
+    
+    func resizeView(_ size: CGSize) {
+        viewController.view.frame.size = size
+        viewController.view.setNeedsLayout()
+        viewController.view.layoutIfNeeded()
     }
 }
 

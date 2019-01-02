@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OverlayViewController: UIViewController {
+public class OverlayViewController: UIViewController {
 
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var overlayPanelContainerViewController = ContainerViewController()
@@ -17,7 +17,7 @@ class OverlayViewController: UIViewController {
     private var stackViewController : StackViewController!
     private var spacerViewController : ContainerViewController!
     
-    override func loadView() {
+    public override func loadView() {
         view = UIView()
         
         setupBackgroundContainerViewController()
@@ -27,7 +27,18 @@ class OverlayViewController: UIViewController {
     private func setupBackgroundContainerViewController() {
         addChild(backgroundContainerViewController)
         view.addSubview(backgroundContainerViewController.view)
+        activateLayoutConstraintsForBackgroundView()
         backgroundContainerViewController.didMove(toParent: self)
+    }
+    
+    private func activateLayoutConstraintsForBackgroundView() {
+        let backgroundView = backgroundContainerViewController.view!
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundView.setNeedsLayout()
     }
     
     private func setupOverlayViewController() {
@@ -60,7 +71,7 @@ class OverlayViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
