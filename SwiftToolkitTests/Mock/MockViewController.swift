@@ -11,7 +11,7 @@ import UIKit
 class MockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.accessibilityIdentifier = "Mock View Controller View"
+        view.accessibilityIdentifier = "MockViewControllerView"
     }
     
     func constrain(to size: CGSize) {

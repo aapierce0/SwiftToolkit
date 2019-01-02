@@ -48,6 +48,7 @@ public class OverlayViewController: UIViewController {
         
         addChild(scrollViewController)
         view.addSubview(scrollViewController.view)
+        activateLayoutConstraintsForScrollViewWrapper()
         scrollViewController.didMove(toParent: self)
     }
     
@@ -68,6 +69,20 @@ public class OverlayViewController: UIViewController {
         scrollViewController = ScrollViewController()
         scrollViewController.contentContainerViewController.setContent(stackViewController)
         scrollViewController.constrainsContentToFitWidth = true
+    }
+    
+    private func activateLayoutConstraintsForScrollViewWrapper() {
+        let scrollWrapper = scrollViewController.view!
+        scrollWrapper.translatesAutoresizingMaskIntoConstraints = false
+        scrollWrapper.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollWrapper.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollWrapper.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollWrapper.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollWrapper.setNeedsLayout()
+        
+        let contentView = scrollViewController.contentContainerViewController.view!
+        contentView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor).isActive = true
+        contentView.setNeedsLayout()
     }
     
     

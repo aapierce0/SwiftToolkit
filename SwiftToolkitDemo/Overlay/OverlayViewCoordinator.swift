@@ -39,6 +39,7 @@ class OverlayViewCoordinator {
     
     private func createOverlayViewController() -> UIViewController {
         let viewController = createColoredViewController(.cyan)
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
         viewController.view.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
         viewController.view.setNeedsLayout()
         viewController.view.layoutIfNeeded()

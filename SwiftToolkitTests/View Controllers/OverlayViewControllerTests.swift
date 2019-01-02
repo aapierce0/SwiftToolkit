@@ -48,6 +48,28 @@ class OverlayViewControllerTests: XCTestCase {
         XCTAssertEqual(backgroundView.bounds.size, CGSize(width: 60.0, height: 140.0))
     }
     
+    func testScrollViewControllerResizesWithRootView() {
+        loadView()
+        let scrollViewWrapper = viewController.view.subviews[1]
+        
+        resizeView(CGSize(width: 100.0, height: 100.0))
+        XCTAssertEqual(scrollViewWrapper.bounds.size, CGSize(width: 100.0, height: 100.0))
+        
+        resizeView(CGSize(width: 60.0, height: 140.0))
+        XCTAssertEqual(scrollViewWrapper.bounds.size, CGSize(width: 60.0, height: 140.0))
+    }
+    
+    func testScrollViewContentIsAtLeastAsTallAsTheRootView() {
+        loadView()
+        let contentStackView = viewController.overlayPanelContainerViewController.view.superview!
+        
+        resizeView(CGSize(width: 100.0, height: 100.0))
+        XCTAssertEqual(contentStackView.bounds.size, CGSize(width: 100.0, height: 100.0))
+        
+        resizeView(CGSize(width: 60.0, height: 140.0))
+        XCTAssertEqual(contentStackView.bounds.size, CGSize(width: 60.0, height: 140.0))
+    }
+    
     func loadView() {
         let _ = viewController.view
     }
