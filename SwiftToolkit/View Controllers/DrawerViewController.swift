@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class OverlayViewController: UIViewController {
+public class DrawerViewController: UIViewController {
 
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var overlayPanelContainerViewController = ContainerViewController()

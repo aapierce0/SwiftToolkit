@@ -1,5 +1,5 @@
 //
-//  OverlayViewControllerTests.swift
+//  DrawerViewControllerTests.swift
 //  SwiftToolkitTests
 //
 //  Created by Avery Pierce on 12/21/18.
@@ -9,12 +9,12 @@
 import XCTest
 @testable import SwiftToolkit
 
-class OverlayViewControllerTests: XCTestCase {
+class DrawerViewControllerTests: XCTestCase {
     
-    var viewController: OverlayViewController!
+    var viewController: DrawerViewController!
     
     override func setUp() {
-        viewController = OverlayViewController()
+        viewController = DrawerViewController()
     }
     
     override func tearDown() {
