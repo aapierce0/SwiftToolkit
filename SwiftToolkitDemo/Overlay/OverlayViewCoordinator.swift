@@ -31,19 +31,36 @@ class OverlayViewCoordinator {
         
         rootViewController.backgroundContainerViewController.setContent(backgroundVC)
         rootViewController.overlayContainerViewController.setContent(overlayVC)
+        
+        var shadow = ShadowDescriptor.floatyDropShadow
+        shadow.opacity = 1.0
+        rootViewController.overlayContainerViewController.layerDescriptor.shadow = shadow
     }
     
     private func createBackgroundViewController() -> UIViewController {
-        return createColoredViewController(.green)
+        let greenPlaidImage = UIImage(named: "GreenPlaidTile")!
+        let greenPlaidColor = UIColor(patternImage: greenPlaidImage)
+        let backgroundVC = createColoredViewController(greenPlaidColor)
+        
+        addFloatingLabel(to: backgroundVC.view)
+        return backgroundVC
+    }
+    
+    private func addFloatingLabel(to view: UIView) {
+        let label = UILabel(frame: .zero)
+        label.text = "Safe Area Bottom"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 21.0)
+        label.backgroundColor = .blue
+        
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     
     private func createOverlayViewController() -> UIViewController {
-        let viewController = createColoredViewController(.cyan)
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        viewController.view.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        viewController.view.setNeedsLayout()
-        viewController.view.layoutIfNeeded()
-        return viewController
+        return OverlayDemoDrawerViewController.instantiateFromDesignatedNib()
     }
     
     private func createColoredViewController(_ color: UIColor) -> ContainerViewController {

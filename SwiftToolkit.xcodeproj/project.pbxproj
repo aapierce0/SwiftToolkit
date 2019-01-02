@@ -33,6 +33,8 @@
 		C608777721CABBC30061D51C /* BorderDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608777621CABBC30061D51C /* BorderDescriptorTests.swift */; };
 		C60934B821DD3A3700B9F063 /* OverlayViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60934B721DD3A3700B9F063 /* OverlayViewControllerTests.swift */; };
 		C60934BA21DD3A8A00B9F063 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60934B921DD3A8A00B9F063 /* OverlayViewController.swift */; };
+		C60934BD21DD68F800B9F063 /* OverlayDemoDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60934BB21DD68F800B9F063 /* OverlayDemoDrawerViewController.swift */; };
+		C60934BE21DD68F800B9F063 /* OverlayDemoDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60934BC21DD68F800B9F063 /* OverlayDemoDrawerViewController.xib */; };
 		C641CB1121CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C641CB1021CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,6 +116,8 @@
 		C608777621CABBC30061D51C /* BorderDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderDescriptorTests.swift; sourceTree = "<group>"; };
 		C60934B721DD3A3700B9F063 /* OverlayViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewControllerTests.swift; sourceTree = "<group>"; };
 		C60934B921DD3A8A00B9F063 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		C60934BB21DD68F800B9F063 /* OverlayDemoDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayDemoDrawerViewController.swift; sourceTree = "<group>"; };
+		C60934BC21DD68F800B9F063 /* OverlayDemoDrawerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayDemoDrawerViewController.xib; sourceTree = "<group>"; };
 		C641CB1021CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayerDescriptorTests.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				C6DA8EBE21DD1BC700FC2A1E /* OverlayViewCoordinator.swift */,
+				C60934BB21DD68F800B9F063 /* OverlayDemoDrawerViewController.swift */,
+				C60934BC21DD68F800B9F063 /* OverlayDemoDrawerViewController.xib */,
 			);
 			path = Overlay;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60934BE21DD68F800B9F063 /* OverlayDemoDrawerViewController.xib in Resources */,
 				C608774B21C858830061D51C /* LaunchScreen.storyboard in Resources */,
 				C608774821C858830061D51C /* Assets.xcassets in Resources */,
 				C608774621C858810061D51C /* Main.storyboard in Resources */,
@@ -472,6 +479,7 @@
 			files = (
 				C6DA8EBF21DD1BC700FC2A1E /* OverlayViewCoordinator.swift in Sources */,
 				C608776D21C96CF20061D51C /* PictureInPictureViewCoordinator.swift in Sources */,
+				C60934BD21DD68F800B9F063 /* OverlayDemoDrawerViewController.swift in Sources */,
 				C608777021C96D580061D51C /* ShadowEditorViewController.swift in Sources */,
 				C608775321C8596F0061D51C /* MenuTableViewController.swift in Sources */,
 				C608774321C858810061D51C /* ViewController.swift in Sources */,
