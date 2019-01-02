@@ -60,4 +60,10 @@ class OverlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let overlayHeight = overlayContainerViewController.view.bounds.height
+        backgroundContainerViewController.additionalSafeAreaInsets.bottom = overlayHeight
+    }
 }

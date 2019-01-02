@@ -77,6 +77,17 @@ class OverlayViewControllerTests: XCTestCase {
         XCTAssertEqual(overlayView.bounds.size, CGSize(width: 100.0, height: 80.0))
     }
     
+    func testBackgroundViewSetsSafeAreaInsets() {
+        resizeView(CGSize(width: 100.0, height: 100.0))
+        
+        let shortViewController = MockViewController()
+        shortViewController.constrainHeight(to: 40)
+        viewController.overlayContainerViewController.setContent(shortViewController)
+        viewController.view.layoutIfNeeded()
+        
+        XCTAssertEqual(viewController.backgroundContainerViewController.additionalSafeAreaInsets, UIEdgeInsets(top: 0, left: 0, bottom: 40.0, right: 0))
+    }
+    
     func loadView() {
         let _  = viewController.view
     }
