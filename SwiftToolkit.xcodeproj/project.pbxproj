@@ -31,6 +31,8 @@
 		C608777321CA9A880061D51C /* ViewLayerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608777221CA9A880061D51C /* ViewLayerDescriptor.swift */; };
 		C608777521CABBA60061D51C /* BorderDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608777421CABBA60061D51C /* BorderDescriptor.swift */; };
 		C608777721CABBC30061D51C /* BorderDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608777621CABBC30061D51C /* BorderDescriptorTests.swift */; };
+		C60934B821DD3A3700B9F063 /* OverlayViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60934B721DD3A3700B9F063 /* OverlayViewControllerTests.swift */; };
+		C60934BA21DD3A8A00B9F063 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60934B921DD3A8A00B9F063 /* OverlayViewController.swift */; };
 		C641CB1121CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C641CB1021CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift */; };
 		C66EE2BD21C18052003B983F /* SwiftToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66EE2B321C18052003B983F /* SwiftToolkit.framework */; };
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -110,6 +112,8 @@
 		C608777221CA9A880061D51C /* ViewLayerDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayerDescriptor.swift; sourceTree = "<group>"; };
 		C608777421CABBA60061D51C /* BorderDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderDescriptor.swift; sourceTree = "<group>"; };
 		C608777621CABBC30061D51C /* BorderDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderDescriptorTests.swift; sourceTree = "<group>"; };
+		C60934B721DD3A3700B9F063 /* OverlayViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewControllerTests.swift; sourceTree = "<group>"; };
+		C60934B921DD3A8A00B9F063 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		C641CB1021CAD72D00B3C6DE /* ViewLayerDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayerDescriptorTests.swift; sourceTree = "<group>"; };
 		C66EE2B321C18052003B983F /* SwiftToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66EE2B621C18052003B983F /* SwiftToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolkit.h; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */,
 				C608773621C7FEDE0061D51C /* PictureInPictureViewController.swift */,
 				C68E117621CD9C320091486A /* DrawerViewController.swift */,
+				C60934B921DD3A8A00B9F063 /* OverlayViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */,
 				C608773821C801120061D51C /* PictureInPictureViewControllerTests.swift */,
 				C68E117821CD9CC10091486A /* DrawerViewControllerTests.swift */,
+				C60934B721DD3A3700B9F063 /* OverlayViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				C608773721C7FEDE0061D51C /* PictureInPictureViewController.swift in Sources */,
 				C608776221C95C3D0061D51C /* ShadowDescriptor.swift in Sources */,
 				C608777321CA9A880061D51C /* ViewLayerDescriptor.swift in Sources */,
+				C60934BA21DD3A8A00B9F063 /* OverlayViewController.swift in Sources */,
 				C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */,
 				C6D043C621C2BA73004EBD80 /* ContainerViewController.swift in Sources */,
 				C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */,
@@ -506,6 +513,7 @@
 				C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */,
 				C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */,
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
+				C60934B821DD3A3700B9F063 /* OverlayViewControllerTests.swift in Sources */,
 				C6D043C921C2BFFC004EBD80 /* ContainerViewControllerTests.swift in Sources */,
 				C608776021C958A50061D51C /* CGFloatTests.swift in Sources */,
 				C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */,
