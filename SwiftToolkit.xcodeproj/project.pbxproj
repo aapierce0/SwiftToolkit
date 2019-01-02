@@ -51,6 +51,7 @@
 		C6D043D721C2FC60004EBD80 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */; };
 		C6D043D921C2FC74004EBD80 /* ScrollViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */; };
 		C6D043E021C31BF4004EBD80 /* NibBackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */; };
+		C6DA8EBF21DD1BC700FC2A1E /* OverlayViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA8EBE21DD1BC700FC2A1E /* OverlayViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		C6D043D621C2FC60004EBD80 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		C6D043D821C2FC74004EBD80 /* ScrollViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewControllerTests.swift; sourceTree = "<group>"; };
 		C6D043DF21C31BF4004EBD80 /* NibBackedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBackedViewController.swift; sourceTree = "<group>"; };
+		C6DA8EBE21DD1BC700FC2A1E /* OverlayViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				C608775221C8596F0061D51C /* MenuTableViewController.swift */,
 				C608775421C859A90061D51C /* MenuItem.swift */,
 				C608776B21C96CBC0061D51C /* Picture In Picture */,
+				C6DA8EBD21DD1B9E00FC2A1E /* Overlay */,
 			);
 			path = SwiftToolkitDemo;
 			sourceTree = "<group>";
@@ -308,6 +311,14 @@
 				C6D043D421C2F041004EBD80 /* MockViewController.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		C6DA8EBD21DD1B9E00FC2A1E /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA8EBE21DD1BC700FC2A1E /* OverlayViewCoordinator.swift */,
+			);
+			path = Overlay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DA8EBF21DD1BC700FC2A1E /* OverlayViewCoordinator.swift in Sources */,
 				C608776D21C96CF20061D51C /* PictureInPictureViewCoordinator.swift in Sources */,
 				C608777021C96D580061D51C /* ShadowEditorViewController.swift in Sources */,
 				C608775321C8596F0061D51C /* MenuTableViewController.swift in Sources */,

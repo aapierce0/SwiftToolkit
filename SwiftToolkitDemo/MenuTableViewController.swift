@@ -46,6 +46,7 @@ class MenuTableViewController: UITableViewController {
         let item = getItem(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = item.title
+        cell.accessoryType = item.accessoryType ?? .none
         return cell
     }
 

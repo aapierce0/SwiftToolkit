@@ -25,6 +25,18 @@ class ViewControllerMenuItem : MenuItem {
         }
         return menuItem
     }
+    
+    static func overlayViewController() -> ViewControllerMenuItem {
+        let menuItem = ViewControllerMenuItem()
+        menuItem.title = "Overlay"
+        menuItem.accessoryType = .disclosureIndicator
+        
+        let coordinator = OverlayViewCoordinator()
+        menuItem.createViewController = {
+            return coordinator.viewController()
+        }
+        return menuItem
+    }
 }
 
 class MenuCoordinator {
@@ -43,7 +55,10 @@ class MenuCoordinator {
     func setup() {
         menuTableViewController = MenuTableViewController()
         menuTableViewController.delegate = self
-        let cells: [MenuItem] = [ViewControllerMenuItem.pipViewController()]
+        let cells: [MenuItem] = [
+            ViewControllerMenuItem.pipViewController(),
+            ViewControllerMenuItem.overlayViewController(),
+        ]
         menuTableViewController.sections = [ItemSection(title: nil, items: cells)]
         
         navigationController = UINavigationController(rootViewController: menuTableViewController)
