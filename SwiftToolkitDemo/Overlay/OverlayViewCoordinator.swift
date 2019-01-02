@@ -10,7 +10,7 @@ import UIKit
 import SwiftToolkit
 
 class OverlayViewCoordinator {
-    var rootViewController: DrawerViewController!
+    var rootViewController: OverlayViewController!
     
     func viewController() -> UIViewController {
         setupIfNeeded()
@@ -24,13 +24,13 @@ class OverlayViewCoordinator {
     }
     
     private func setup() {
-        rootViewController = DrawerViewController()
+        rootViewController = OverlayViewController()
         
         let backgroundVC = createBackgroundViewController()
         let overlayVC = createOverlayViewController()
         
         rootViewController.backgroundContainerViewController.setContent(backgroundVC)
-        rootViewController.overlayPanelContainerViewController.setContent(overlayVC)
+        rootViewController.overlayContainerViewController.setContent(overlayVC)
     }
     
     private func createBackgroundViewController() -> UIViewController {

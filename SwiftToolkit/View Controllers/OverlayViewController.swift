@@ -8,17 +8,17 @@
 
 import UIKit
 
-class OverlayViewController: UIViewController {
+public class OverlayViewController: UIViewController {
     
-    var backgroundContainerViewController = ContainerViewController()
-    var overlayContainerViewController = ContainerViewController()
+    private(set) public var backgroundContainerViewController = ContainerViewController()
+    private(set) public var overlayContainerViewController = ContainerViewController()
     
-    override func loadView() {
+    public override func loadView() {
         view = UIView()
         setup()
     }
     
-    func setup() {
+    private func setup() {
         setupBackgroundContainerViewController()
         setupOverlayContainerViewController()
     }
@@ -57,11 +57,11 @@ class OverlayViewController: UIViewController {
         overlayView.setNeedsLayout()
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let overlayHeight = overlayContainerViewController.view.bounds.height
         backgroundContainerViewController.additionalSafeAreaInsets.bottom = overlayHeight
