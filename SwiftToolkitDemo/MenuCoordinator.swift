@@ -37,6 +37,37 @@ class ViewControllerMenuItem : MenuItem {
         }
         return menuItem
     }
+    
+    static func formTableViewController() -> ViewControllerMenuItem {
+        let menuItem = ViewControllerMenuItem()
+        menuItem.title = "Form"
+        menuItem.accessoryType = .disclosureIndicator
+        
+        menuItem.createViewController = {
+            typealias Row = FormTableViewController.Row
+            var row1 = Row(identifier: "FirstName")
+            row1.label = "First Name"
+            row1.placeholder = "Bugs"
+            
+            var row2 = Row(identifier: "LastName")
+            row2.label = "Last Name"
+            row2.placeholder = "Bunny"
+            
+            var row3 = Row(identifier: "EmailAddress")
+            row3.placeholder = "carrot.eater@example.com"
+            row3.keyboardType = .emailAddress
+            
+            var section1 = ItemSection<Row>(title: "Name", items: [row1, row2])
+            section1.footer = "Enter your name so we know how to address you!"
+            
+            let section2 = ItemSection<Row>(title: "Contact", items: [row3])
+            
+            let viewController = FormTableViewController(style: .grouped)
+            viewController.sections = [section1, section2]
+            return viewController
+        }
+        return menuItem
+    }
 }
 
 class MenuCoordinator {
@@ -58,6 +89,7 @@ class MenuCoordinator {
         let cells: [MenuItem] = [
             ViewControllerMenuItem.pipViewController(),
             ViewControllerMenuItem.overlayViewController(),
+            ViewControllerMenuItem.formTableViewController(),
         ]
         menuTableViewController.sections = [ItemSection(title: nil, items: cells)]
         
