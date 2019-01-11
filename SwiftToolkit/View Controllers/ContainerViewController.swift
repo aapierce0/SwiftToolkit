@@ -53,7 +53,7 @@ public class ContainerViewController: UIViewController {
         removeCurrentViewControllerIfNeeded()
         contentViewController = viewController
         addContentviewControllerToHierarchyIfLoaded()
-        view.layoutIfNeeded()
+        viewIfLoaded?.layoutIfNeeded()
     }
     
     private func removeCurrentViewControllerIfNeeded() {
