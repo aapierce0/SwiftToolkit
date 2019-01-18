@@ -241,6 +241,7 @@ class ContainerViewControllerTests: XCTestCase {
         mockViewController.preferredContentSize = CGSize(width: 100.0, height: 100.0)
         
         viewController.setContent(mockViewController)
+        loadView()
         XCTAssertEqual(viewController.preferredContentSize, CGSize(width: 100.0, height: 100.0))
     }
     
@@ -249,6 +250,7 @@ class ContainerViewControllerTests: XCTestCase {
         mockViewController.preferredContentSize = CGSize(width: 100.0, height: 100.0)
         
         viewController.setContent(mockViewController)
+        loadView()
         mockViewController.preferredContentSize = CGSize(width: 120.0, height: 200.0)
         XCTAssertEqual(viewController.preferredContentSize, CGSize(width: 120.0, height: 200.0))
     }
