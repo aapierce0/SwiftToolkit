@@ -28,15 +28,19 @@ public class StackViewController: UIViewController {
         view.addSubview(stackView)
         self.stackView = stackView
         
-        activateStackViewLayoutConstraints()
+        activateStackViewLayoutConstraintsExplicitly()
         configureStackViewAxisIfLoaded()
     }
-    
-    private func activateStackViewLayoutConstraints() {
-        stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        stackView.translatesAutoresizingMaskIntoConstraints = true
-    }
 
+    private func activateStackViewLayoutConstraintsExplicitly() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        stackView.setNeedsLayout()
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
