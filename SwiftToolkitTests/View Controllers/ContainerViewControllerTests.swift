@@ -255,6 +255,18 @@ class ContainerViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.preferredContentSize, CGSize(width: 120.0, height: 200.0))
     }
     
+    func testAwakeFromNib() {
+        let viewControllerWrapper = MockNibBackedViewController.instantiateFromDesignatedNib()
+        viewControllerWrapper.view.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        viewControllerWrapper.view.setNeedsLayout()
+        viewControllerWrapper.view.layoutIfNeeded()
+        
+        let mockViewController = MockViewController()
+        viewControllerWrapper.containerViewController!.setContent(mockViewController)
+        
+        XCTAssertEqual(mockViewController.viewIfLoaded?.frame, CGRect(x: 0, y: 0, width: 80, height: 80))
+    }
+    
     @discardableResult func loadView() -> UIView {
         return viewController.view
     }

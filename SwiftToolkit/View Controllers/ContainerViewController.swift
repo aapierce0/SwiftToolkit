@@ -128,11 +128,11 @@ public class ContainerViewController: UIViewController {
 // MARK: convenience properties
 
 public extension ContainerViewController {
-    public var cornerRadius: CGFloat {
+    var cornerRadius: CGFloat {
         get { return layerDescriptor.cornerRadius }
         set { layerDescriptor.cornerRadius = newValue }
     }
-    public var masksToBounds: Bool {
+    var masksToBounds: Bool {
         get { return layerDescriptor.masksToBounds }
         set { layerDescriptor.masksToBounds = newValue }
     }

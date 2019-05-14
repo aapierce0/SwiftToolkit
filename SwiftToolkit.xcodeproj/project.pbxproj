@@ -44,6 +44,8 @@
 		C66EE2C421C18052003B983F /* SwiftToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = C66EE2B621C18052003B983F /* SwiftToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C68E117721CD9C320091486A /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68E117621CD9C320091486A /* DrawerViewController.swift */; };
 		C68E117921CD9CC10091486A /* DrawerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68E117821CD9CC10091486A /* DrawerViewControllerTests.swift */; };
+		C6BBEAA721FB6B3900204090 /* MockNibBackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEAA521FB6B3900204090 /* MockNibBackedViewController.swift */; };
+		C6BBEAA821FB6B3900204090 /* MockNibBackedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6BBEAA621FB6B3900204090 /* MockNibBackedViewController.xib */; };
 		C6CB39CA21C182AE00816242 /* ItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39C921C182AE00816242 /* ItemSection.swift */; };
 		C6CB39CC21C182BC00816242 /* Sectionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39CB21C182BC00816242 /* Sectionable.swift */; };
 		C6CB39CE21C183EF00816242 /* ItemSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */; };
@@ -134,6 +136,8 @@
 		C66EE2C321C18052003B983F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C68E117621CD9C320091486A /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		C68E117821CD9CC10091486A /* DrawerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewControllerTests.swift; sourceTree = "<group>"; };
+		C6BBEAA521FB6B3900204090 /* MockNibBackedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNibBackedViewController.swift; sourceTree = "<group>"; };
+		C6BBEAA621FB6B3900204090 /* MockNibBackedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MockNibBackedViewController.xib; sourceTree = "<group>"; };
 		C6CB39C921C182AE00816242 /* ItemSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSection.swift; sourceTree = "<group>"; };
 		C6CB39CB21C182BC00816242 /* Sectionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sectionable.swift; sourceTree = "<group>"; };
 		C6CB39CD21C183EF00816242 /* ItemSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSectionTests.swift; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				C6D043D421C2F041004EBD80 /* MockViewController.swift */,
+				C6BBEAA521FB6B3900204090 /* MockNibBackedViewController.swift */,
+				C6BBEAA621FB6B3900204090 /* MockNibBackedViewController.xib */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -434,12 +440,15 @@
 				TargetAttributes = {
 					C608773D21C858810061D51C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C66EE2B221C18052003B983F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C66EE2BB21C18052003B983F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -488,6 +497,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BBEAA821FB6B3900204090 /* MockNibBackedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +552,7 @@
 				C68E117921CD9CC10091486A /* DrawerViewControllerTests.swift in Sources */,
 				C6D043D521C2F041004EBD80 /* MockViewController.swift in Sources */,
 				C6CB39D421C190C800816242 /* ItemSectionBuilderTests.swift in Sources */,
+				C6BBEAA721FB6B3900204090 /* MockNibBackedViewController.swift in Sources */,
 				C608776421C95C880061D51C /* ShadowDescriptorTests.swift in Sources */,
 				C6D043CD21C2C6DC004EBD80 /* ActivityIndicatorViewControllerTests.swift in Sources */,
 				C60934B821DD3A3700B9F063 /* OverlayViewControllerTests.swift in Sources */,
@@ -607,7 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -626,7 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -774,7 +785,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -800,7 +811,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -819,7 +830,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -838,7 +849,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.SwiftToolkitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
