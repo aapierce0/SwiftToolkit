@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ScrollViewController: UIViewController {
+open class ScrollViewController: UIViewController {
     
     public weak var scrollView: UIScrollView!
     
@@ -26,7 +26,7 @@ public class ScrollViewController: UIViewController {
         contentContainerViewController.setContent(viewController)
     }
     
-    override public func loadView() {
+    open override func loadView() {
         view = UIView()
         view.backgroundColor = .clear
         view.accessibilityIdentifier = "Scroll View Controller Wrapper View"
@@ -47,7 +47,7 @@ public class ScrollViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = true
     }
 
-    override public func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         setContentViewControllerInScrollView()

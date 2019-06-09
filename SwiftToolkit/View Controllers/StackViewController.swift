@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class StackViewController: UIViewController {
+open class StackViewController: UIViewController {
     
     private(set) public weak var stackView: UIStackView!
     
@@ -16,7 +16,7 @@ public class StackViewController: UIViewController {
     
     public var axis: NSLayoutConstraint.Axis = .vertical { didSet { configureStackViewAxisIfLoaded() } }
     
-    override public func loadView() {
+    open override func loadView() {
         view = UIView()
         view.backgroundColor = .clear
         
@@ -41,7 +41,7 @@ public class StackViewController: UIViewController {
         stackView.setNeedsLayout()
     }
     
-    override public func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         addAllArrangedViewControllersToStackView()

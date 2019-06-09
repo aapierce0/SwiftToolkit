@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FormTableViewController: UITableViewController {
+open class FormTableViewController: UITableViewController {
     public struct Row {
         
         public var identifier: String
@@ -28,7 +28,7 @@ public class FormTableViewController: UITableViewController {
     
     public var sections: [ItemSection<Row>] = []
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         registerClassesForTableView()
     }
@@ -38,30 +38,30 @@ public class FormTableViewController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: ReuseIdentifiers.formCell)
     }
     
-    public override func numberOfSections(in tableView: UITableView) -> Int {
+    open override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].items.count
     }
     
-    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
     }
     
-    public override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    open override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return sections[section].footer
     }
     
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = getRow(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifiers.formCell, for: indexPath) as! FormTableViewCell
         cell.configure(with: row)
         return cell
     }
     
-    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? FormTableViewCell
         cell?.textField.becomeFirstResponder()
     }

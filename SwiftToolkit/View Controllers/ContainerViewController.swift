@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ContainerViewController: UIViewController {
+open class ContainerViewController: UIViewController {
     
     public struct ContentInset : Equatable {
         public var top: CGFloat = 0
@@ -40,7 +40,7 @@ public class ContainerViewController: UIViewController {
     public var backgroundColor : UIColor? = nil { didSet { configureBackgroundColorIfLoaded() } }
     public var alpha : CGFloat = 1.0 { didSet { configureAlphaIfLoaded() } }
 
-    override public func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         addContentViewControllerToHierarchy()
@@ -118,7 +118,7 @@ public class ContainerViewController: UIViewController {
         viewIfLoaded?.alpha = alpha
     }
     
-    public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+    open override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
         preferredContentSize = container.preferredContentSize
     }

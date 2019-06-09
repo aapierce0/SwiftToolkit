@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate let PIP_INSET : CGFloat = 8.0
 
-public class PictureInPictureViewController: UIViewController {
+open class PictureInPictureViewController: UIViewController {
     
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var pictureInPictureContainerViewController = ContainerViewController()
@@ -38,7 +38,7 @@ public class PictureInPictureViewController: UIViewController {
     
     // MARK: - Construction
     
-    override public func loadView() {
+    open override func loadView() {
         view = UIView()
         
         loadBackgroundContainerViewController()
@@ -148,13 +148,13 @@ public class PictureInPictureViewController: UIViewController {
     }
     
     
-    public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+    open override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
         view.setNeedsUpdateConstraints()
         view.setNeedsLayout()
     }
     
-    public override func updateViewConstraints() {
+    open override func updateViewConstraints() {
         super.updateViewConstraints()
         let pipSize = pictureInPictureContainerViewController.preferredContentSize
         pipHeightLayoutConstraint.constant = pipSize.height

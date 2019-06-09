@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DrawerViewController: UIViewController {
+open class DrawerViewController: UIViewController {
 
     private(set) public var backgroundContainerViewController = ContainerViewController()
     private(set) public var overlayPanelContainerViewController = ContainerViewController()
@@ -17,7 +17,7 @@ public class DrawerViewController: UIViewController {
     private var stackViewController : StackViewController!
     private var spacerViewController : ContainerViewController!
     
-    public override func loadView() {
+    open override func loadView() {
         view = UIView()
         
         setupBackgroundContainerViewController()
@@ -86,7 +86,7 @@ public class DrawerViewController: UIViewController {
     }
     
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
